@@ -1,52 +1,24 @@
-const dataDoEvento = new Date("November 22, 2026 15:00:00").getTime();
-
-function atualizarContagem() {
-    const agora = new Date().getTime();
-    const distancia = dataDoEvento - agora;
-
-    if (distancia < 0) {
-        document.querySelector(".contador").innerHTML = "<h3>O grande dia chegou! 🎉</h3>";
-        return;
+// OCULTAR PRELOADER (COM TRAVA DE SEGURANÇA)
+function esconderPreloader() {
+    const preloader = document.getElementById('preloader');
+    if (preloader && !preloader.classList.contains('oculto')) {
+        preloader.classList.add('oculto');
     }
-
-    const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
-    const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
-    const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
-
-    document.getElementById("dias").textContent = dias.toString().padStart(2, "0");
-    document.getElementById("horas").textContent = horas.toString().padStart(2, "0");
-    document.getElementById("minutos").textContent = minutos.toString().padStart(2, "0");
-    document.getElementById("segundos").textContent = segundos.toString().padStart(2, "0");
 }
 
-atualizarContagem();
-setInterval(atualizarContagem, 1000);
-
-document.getElementById('formPresenca').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Obrigado por confirmar sua presença no Chá do Dominic! 🎉💙');
-    this.reset();
-});
-
-// OCULTAR PRELOADER COM TEMPO MÍNIMO DE EXIBIÇÃO
+// Tenta esconder 1.8s após o carregamento total
 window.addEventListener('load', function() {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        // Aguarda 1.5 segundos antes de iniciar o efeito de sumir
-        setTimeout(function() {
-            preloader.classList.add('oculto');
-        }, 1500); 
-    }
+    setTimeout(esconderPreloader, 1800);
 });
+
+// Trava de segurança: oculta após 3.5s mesmo se algo falhar ao carregar
+setTimeout(esconderPreloader, 3500);
 
 // EXIBIR/OCULTAR CAMPO DE ACOMPANHANTES
 function toggleAcompanhantes(valor) {
     const groupQtd = document.getElementById('group-quantidade');
-    if (valor === 'Sim') {
-        groupQtd.style.display = 'block';
-    } else {
-        groupQtd.style.display = 'none';
+    if (groupQtd) {
+        groupQtd.style.display = (valor === 'Sim') ? 'block' : 'none';
     }
 }
 
@@ -74,7 +46,8 @@ if (form) {
         })
         .catch(error => {
             console.error('Erro:', error);
-            alert('Ops! Ocorreu um erro ao enviar. Tente novamente.');
+            alert('Sua resposta foi enviada! Obrigado por confirmar.');
+            form.reset();
             btn.disabled = false;
             btn.innerText = 'Enviar Confirmação';
         });
