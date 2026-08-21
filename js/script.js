@@ -29,10 +29,13 @@ document.getElementById('formPresenca').addEventListener('submit', function(e) {
     this.reset();
 });
 
-// OCULTAR PRELOADER APÓS CARREGAMENTO
+// OCULTAR PRELOADER COM TEMPO MÍNIMO DE EXIBIÇÃO
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        preloader.classList.add('oculto');
+        // Aguarda 1.8 segundos antes de iniciar o efeito de sumir
+        setTimeout(function() {
+            preloader.classList.add('oculto');
+        }, 1800); 
     }
 });
