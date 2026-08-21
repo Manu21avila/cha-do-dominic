@@ -201,8 +201,8 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 }
 
 .evento-data {
-    min-width: 75px;
-    height: 75px;
+    min-width: 80px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -215,7 +215,7 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 }
 
 .evento-data span {
-    font-size: 0.75rem;
+    font-size: 0.80rem;
     letter-spacing: 0.08em;
 }
 
