@@ -352,6 +352,8 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 #preloader.oculto {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
+    display: none !important;
 }
 
 @keyframes spin {
