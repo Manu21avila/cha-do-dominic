@@ -46,36 +46,47 @@ function toggleAcompanhantes(valor) {
 }
 
 // ENVIO DO FORMULÁRIO E REDIRECIONAMENTO GRATUITO
-const form = document.getElementById('rsvp-form');
-if (form) {
-    form.addEventListener('submit', function (e) {
+const rsvpForm = document.getElementById('rsvp-form'); // Verifique se o ID do seu <form> é 'rsvp-form'
+
+if (rsvpForm) {
+    rsvpForm.addEventListener('submit', function (e) {
         e.preventDefault();
-        const btn = form.querySelector('button[type="submit"]');
-        btn.disabled = true;
-        btn.innerText = 'Enviando...';
 
-        const data = new FormData(form);
+        // Pega o campo de presença
+        const campoPresenca = document.getElementById('presenca'); // Verifique se o ID do <select> ou <input> é 'presenca'
+        const valorPresenca = campoPresenca ? campoPresenca.value.toLowerCase().trim() : '';
 
-        fetch(form.action, {
-            method: 'POST',
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (response.ok) {
-                window.location.href = 'obrigado.html';
-            } else {
-                alert('Erro ao enviar. Tente novamente.');
-                btn.disabled = false;
-                btn.innerText = 'Enviar Confirmação';
-            }
-        })
-        .catch(error => {
-            alert('Erro de conexão. Tente novamente.');
-            btn.disabled = false;
-            btn.innerText = 'Enviar Confirmação';
-        });
+        const containerMensagem = document.querySelector('.form-container');
+
+        // Confere se o valor contém palavras de confirmação
+        const confirmou = valorPresenca.includes('sim') || 
+                          valorPresenca.includes('confirm') || 
+                          valorPresenca.includes('vou') || 
+                          valorPresenca === 'yes' ||
+                          valorPresenca === '1';
+
+        let icone = '';
+        let titulo = '';
+        let texto = '';
+
+        if (confirmou) {
+            icone = '🎉';
+            titulo = 'Presença Confirmada!';
+            texto = 'Muito obrigado por confirmar! Mal podemos esperar para comemorar esse momento tão especial do Chá do Dominic com você! 🥳💙';
+        } else {
+            icone = '🩵';
+            titulo = 'Resposta Registrada!';
+            texto = 'Puxa, sentimos muito que você não poderá estar conosco nesse dia. Agradecemos muito o carinho e por nos avisar! 💌✨';
+        }
+
+        // Exibe a mensagem correta
+        containerMensagem.innerHTML = `
+            <div style="text-align: center; padding: 20px;">
+                <div style="font-size: 3rem; margin-bottom: 10px;">${icone}</div>
+                <h3 style="color: var(--azul-escuro); font-size: 1.8rem; margin-bottom: 15px; font-family: 'Quicksand', sans-serif;">${titulo}</h3>
+                <p style="color: var(--cinza-texto); font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; font-family: 'Nunito', sans-serif;">${texto}</p>
+                <a href="index.html" class="btn-principal" style="display: inline-block; text-decoration: none;">← Voltar ao site</a>
+            </div>
+        `;
     });
 }
