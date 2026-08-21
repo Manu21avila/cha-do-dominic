@@ -33,3 +33,41 @@ function toggleAcompanhantes(valor) {
         groupQtd.style.display = (valor.includes('Sim')) ? 'block' : 'none';
     }
 }
+
+// ENVIO DO FORMULÁRIO COM REDIRECIONAMENTO PRÓPRIO
+const form = document.getElementById('rsvp-form');
+
+if (form) {
+    form.addEventListener('submit', function (e) {
+        e.preventDefault(); // Impede a tela padrão do Formspree
+
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.innerText = 'Enviando...';
+
+        const data = new FormData(form);
+
+        fetch(form.action, {
+            method: 'POST',
+            body: data,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Redireciona direto para a sua tela de obrigado gratuita
+                window.location.href = 'obrigado.html';
+            } else {
+                alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
+                btn.disabled = false;
+                btn.innerText = 'Enviar Confirmação';
+            }
+        })
+        .catch(error => {
+            alert('Ocorreu um erro na conexão. Tente novamente.');
+            btn.disabled = false;
+            btn.innerText = 'Enviar Confirmação';
+        });
+    });
+}
