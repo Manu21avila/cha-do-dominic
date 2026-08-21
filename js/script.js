@@ -29,10 +29,15 @@ if (form) {
         btn.disabled = true;
         btn.innerText = 'Enviando...';
 
+        const data = new URLSearchParams(new FormData(form));
+
         fetch(scriptURL, {
             method: 'POST',
             mode: 'no-cors',
-            body: new FormData(form)
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: data.toString()
         })
         .then(function () {
             alert('Obrigado! Sua resposta foi salva com sucesso! 🎉');
