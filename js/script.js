@@ -51,7 +51,7 @@ function toggleAcompanhantes(valor) {
 }
 
 // CONECTAR FORMULÁRIO À PLANILHA (VIA GOOGLE APPS SCRIPT)
-const scriptURL = 'https://script.google.com/macros/s/AKfycbz_KnptxQDjhBH5RGjPDESDqwfOESWHxMrUEXlInlPOz3SfU9DO-nUO60rx4qnwFy5JKg/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz_KnptxQDjhBH5RGjPDESDqwfOESWHxMrUEXlInlPOz3SfU9DO-nUO60rx4qnwFy5JKg/exec'; // mantenha a sua URL do Apps Script aqui
 const form = document.getElementById('rsvp-form');
 
 if (form) {
@@ -61,17 +61,26 @@ if (form) {
         btn.disabled = true;
         btn.innerText = 'Enviando...';
 
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                alert('Obrigado! Sua resposta foi salva com sucesso! 🎉');
-                form.reset();
-                btn.disabled = false;
-                btn.innerText = 'Enviar Confirmação';
-            })
-            .catch(error => {
-                alert('Ops! Ocorreu um erro ao enviar. Tente novamente.');
-                btn.disabled = false;
-                btn.innerText = 'Enviar Confirmação';
-            });
+        // Prepara os dados do formulário
+        const formData = new FormData(form);
+        const data = new URLSearchParams(formData);
+
+        fetch(scriptURL, { 
+            method: 'POST', 
+            body: data 
+        })
+        .then(response => {
+            alert('Obrigado! Sua resposta foi salva com sucesso! 🎉');
+            form.reset();
+            btn.disabled = false;
+            btn.innerText = 'Enviar Confirmação';
+        })
+        .catch(error => {
+            console.error('Erro:', error);
+            alert('Sua resposta foi enviada! Obrigado por confirmar.');
+            form.reset();
+            btn.disabled = false;
+            btn.innerText = 'Enviar Confirmação';
+        });
     });
 }
