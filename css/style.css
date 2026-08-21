@@ -400,3 +400,85 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 
     gap: 18px;
 }
+
+/* ==============================
+   ESTILIZAÇÃO DO FORMULÁRIO RSVP
+================================ */
+.rsvp-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: var(--bege-suave);
+}
+
+.rsvp-form {
+    max-width: 500px;
+    margin: 30px auto 0;
+    background: var(--branco);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px var(--sombra);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 8px;
+}
+
+.form-group label {
+    font-family: 'Outfit', sans-serif;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e6ed;
+    border-radius: 10px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.95rem;
+    color: var(--texto-principal);
+    background-color: #f9fbfd;
+    outline: none;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--azul-principal);
+    background-color: #ffffff;
+}
+
+#group-quantidade {
+    display: none; /* Inicia oculto até selecionar "Sim" */
+}
+
+.btn-confirmar {
+    background-color: var(--azul-principal);
+    color: var(--branco);
+    border: none;
+    padding: 14px 28px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px var(--sombra);
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-confirmar:hover {
+    background-color: var(--azul-escuro);
+    transform: translateY(-2px);
+}
