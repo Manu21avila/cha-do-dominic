@@ -26,6 +26,17 @@ function atualizarContagem() {
 setInterval(atualizarContagem, 1000);
 atualizarContagem();
 
+// TELA DE CARREGAMENTO (PRELOADER)
+window.addEventListener('load', function () {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.style.opacity = '0';
+        setTimeout(function () {
+            preloader.style.display = 'none';
+        }, 500);
+    }
+});
+
 // EXIBIR / OCULTAR CAMPO DE ACOMPANHANTES
 function toggleAcompanhantes(valor) {
     const groupQtd = document.getElementById('group-quantidade');
@@ -34,13 +45,11 @@ function toggleAcompanhantes(valor) {
     }
 }
 
-// ENVIO DO FORMULÁRIO COM REDIRECIONAMENTO PRÓPRIO
+// ENVIO DO FORMULÁRIO E REDIRECIONAMENTO GRATUITO
 const form = document.getElementById('rsvp-form');
-
 if (form) {
     form.addEventListener('submit', function (e) {
-        e.preventDefault(); // Impede a tela padrão do Formspree
-
+        e.preventDefault();
         const btn = form.querySelector('button[type="submit"]');
         btn.disabled = true;
         btn.innerText = 'Enviando...';
@@ -56,16 +65,15 @@ if (form) {
         })
         .then(response => {
             if (response.ok) {
-                // Redireciona direto para a sua tela de obrigado gratuita
                 window.location.href = 'obrigado.html';
             } else {
-                alert('Ocorreu um erro ao enviar. Por favor, tente novamente.');
+                alert('Erro ao enviar. Tente novamente.');
                 btn.disabled = false;
                 btn.innerText = 'Enviar Confirmação';
             }
         })
         .catch(error => {
-            alert('Ocorreu um erro na conexão. Tente novamente.');
+            alert('Erro de conexão. Tente novamente.');
             btn.disabled = false;
             btn.innerText = 'Enviar Confirmação';
         });
