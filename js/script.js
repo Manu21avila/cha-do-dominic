@@ -36,6 +36,6 @@ window.addEventListener('load', function() {
         // Aguarda 1.8 segundos antes de iniciar o efeito de sumir
         setTimeout(function() {
             preloader.classList.add('oculto');
-        }, 1800); 
+        }, 1500); 
     }
 });
