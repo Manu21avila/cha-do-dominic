@@ -170,38 +170,42 @@
     </section>
 
     <!-- SEÇÃO CONFIRMAÇÃO DE PRESENÇA -->
-<section id="rsvp" class="rsvp-section">
-    <h2>Confirmação de Presença ✈️</h2>
-    <p>Por favor, confirme sua presença até o dia X para organizarmos tudo com muito carinho!</p>
+    <section class="rsvp-section">
+        <h2>Confirmação de Presença ✈️</h2>
+        <p>Por favor, confirme sua presença até o dia 10/11/2026 para organizarmos tudo com muito carinho! 🎉💙</p>
 
-    <form id="rsvp-form">
-        <div class="form-group">
-            <label for="nome">Nome Completo:</label>
-            <input type="text" id="nome" name="nome" required placeholder="Digite seu nome">
+        <div class="form-container">
+            <!-- Cole a sua URL do Formspree no campo action abaixo -->
+            <form id="rsvp-form" action="https://formspree.io/f/SEU_CODIGO_AQUI" method="POST">
+                
+                <div class="form-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" id="nome" name="Nome" required placeholder="Digite seu nome">
+                </div>
+
+                <div class="form-group">
+                    <label for="presenca">Você irá ao evento?</label>
+                    <select id="presenca" name="Presença" onchange="toggleAcompanhantes(this.value)" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="Sim, estarei lá!">Sim, estarei lá!</option>
+                        <option value="Infelizmente não poderei ir">Infelizmente não poderei ir</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="group-quantidade">
+                    <label for="quantidade">Quantas pessoas no total (incluindo você)?</label>
+                    <input type="number" id="quantidade" name="Quantidade de Pessoas" min="1" value="1">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensagem">Recado para os pais / Dominic (opcional):</label>
+                    <textarea id="mensagem" name="Mensagem" rows="3" placeholder="Deixe uma mensagem fofa..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-confirmar">Enviar Confirmação</button>
+            </form>
         </div>
-
-        <div class="form-group">
-            <label for="presenca">Você irá ao evento?</label>
-            <select id="presenca" name="presenca" onchange="toggleAcompanhantes(this.value)" required>
-                <option value="">Selecione uma opção</option>
-                <option value="Sim">Sim, estarei lá!</option>
-                <option value="Não">Infelizmente não poderei ir</option>
-            </select>
-        </div>
-
-        <div class="form-group" id="group-quantidade">
-            <label for="quantidade">Quantas pessoas no total (incluindo você)?</label>
-            <input type="number" id="quantidade" name="quantidade" min="1" value="1">
-        </div>
-
-        <div class="form-group">
-            <label for="mensagem">Recado para os pais / Dominic (opcional):</label>
-            <textarea id="mensagem" name="mensagem" rows="3" placeholder="Deixe uma mensagem fofa..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-confirmar">Enviar Confirmação</button>
-    </form>
-</section>
+    </section>
 
     <!-- LOCALIZAÇÃO -->
     <section class="secao-mapa">
