@@ -28,3 +28,11 @@ document.getElementById('formPresenca').addEventListener('submit', function(e) {
     alert('Obrigado por confirmar sua presença no Chá do Dominic! 🎉💙');
     this.reset();
 });
+
+// OCULTAR PRELOADER APÓS CARREGAMENTO
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        preloader.classList.add('oculto');
+    }
+});

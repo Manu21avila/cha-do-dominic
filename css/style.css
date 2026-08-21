@@ -297,6 +297,73 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     line-height: 1.6;
 }
 
+/* ==============================
+   PRELOADER COM O SELO DO DOMINIC
+================================ */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bege-suave);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.preloader-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.preloader-logo {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 10px 25px var(--sombra);
+    border: 3px solid var(--branco);
+    animation: flutuar 2s infinite ease-in-out;
+}
+
+.spinner {
+    width: 36px;
+    height: 36px;
+    border: 3px solid var(--azul-claro);
+    border-top: 3px solid var(--azul-principal);
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+}
+
+.preloader-content p {
+    font-family: 'Outfit', sans-serif;
+    color: var(--azul-escuro);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+}
+
+#preloader.oculto {
+    opacity: 0;
+    visibility: hidden;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes flutuar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 @media (max-width: 600px) {
     .nome-bebe { font-size: 3.2rem; }
     .contador-item { min-width: 75px; padding: 16px 10px; }
