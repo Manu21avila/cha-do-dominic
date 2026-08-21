@@ -169,22 +169,39 @@
         </div>
     </section>
 
-    <!-- CONFIRMAÇÃO DE PRESENÇA -->
-    <section class="secao-confirmacao" id="confirmacao">
-        <h2>Confirmar Presença</h2>
-        <p class="subtitulo-secao">Venha celebrar conosco essa missão das fraldas! 👶🏻✨</p>
+    <!-- SEÇÃO CONFIRMAÇÃO DE PRESENÇA -->
+<section id="rsvp" class="rsvp-section">
+    <h2>Confirmação de Presença ✈️</h2>
+    <p>Por favor, confirme sua presença até o dia X para organizarmos tudo com muito carinho!</p>
 
-        <form class="form-confirmacao" id="formPresenca">
-            <input type="text" placeholder="Seu nome completo" required>
-            <select required>
-                <option value="" disabled selected>Você irá ao evento?</option>
-                <option value="sim">Sim, estarei lá! 🎉</option>
-                <option value="nao">Infelizmente não poderei ir 💙</option>
+    <form id="rsvp-form" class="rsvp-form">
+        <div class="form-group">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        </div>
+
+        <div class="form-group">
+            <label for="presenca">Você irá ao evento?</label>
+            <select id="presenca" name="presenca" required onchange="toggleAcompanhantes(this.value)">
+                <option value="">Selecione uma opção</option>
+                <option value="Sim">Sim, com certeza!</option>
+                <option value="Nao">Infelizmente não poderei ir</option>
             </select>
-            <textarea placeholder="Deixe um recado para o Dominic e a família (opcional)" rows="3"></textarea>
-            <button type="submit" class="btn-principal">Enviar Confirmação</button>
-        </form>
-    </section>
+        </div>
+
+        <div class="form-group" id="group-quantidade">
+            <label for="quantidade">Quantas pessoas no total (incluindo você)?</label>
+            <input type="number" id="quantidade" name="quantidade" min="1" max="10" value="1">
+        </div>
+
+        <div class="form-group">
+            <label for="mensagem">Recado para os pais / Dominic (opcional):</label>
+            <textarea id="mensagem" name="mensagem" rows="3" placeholder="Deixe uma mensagem fofa..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-confirmar">Enviar Confirmação</button>
+    </form>
+</section>
 
     <!-- LOCALIZAÇÃO -->
     <section class="secao-mapa">

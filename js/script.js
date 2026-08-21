@@ -33,9 +33,45 @@ document.getElementById('formPresenca').addEventListener('submit', function(e) {
 window.addEventListener('load', function() {
     const preloader = document.getElementById('preloader');
     if (preloader) {
-        // Aguarda 1.8 segundos antes de iniciar o efeito de sumir
+        // Aguarda 1.5 segundos antes de iniciar o efeito de sumir
         setTimeout(function() {
             preloader.classList.add('oculto');
         }, 1500); 
     }
 });
+
+// EXIBIR/OCULTAR CAMPO DE ACOMPANHANTES
+function toggleAcompanhantes(valor) {
+    const groupQtd = document.getElementById('group-quantidade');
+    if (valor === 'Sim') {
+        groupQtd.style.display = 'block';
+    } else {
+        groupQtd.style.display = 'none';
+    }
+}
+
+// CONECTAR FORMULÁRIO À PLANILHA (VIA GOOGLE APPS SCRIPT)
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz_KnptxQDjhBH5RGjPDESDqwfOESWHxMrUEXlInlPOz3SfU9DO-nUO60rx4qnwFy5JKg/exec';
+const form = document.getElementById('rsvp-form');
+
+if (form) {
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.innerText = 'Enviando...';
+
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                alert('Obrigado! Sua resposta foi salva com sucesso! 🎉');
+                form.reset();
+                btn.disabled = false;
+                btn.innerText = 'Enviar Confirmação';
+            })
+            .catch(error => {
+                alert('Ops! Ocorreu um erro ao enviar. Tente novamente.');
+                btn.disabled = false;
+                btn.innerText = 'Enviar Confirmação';
+            });
+    });
+}
