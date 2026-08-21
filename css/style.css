@@ -15,12 +15,25 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
+
 body { 
-    font-family: 'Plus Jakarta Sans', sans-serif; 
+    font-family: 'Nunito', sans-serif; 
     background-color: var(--bege-suave); 
     color: var(--cinza-texto); 
     text-align: center;
     line-height: 1.6;
+}
+
+/* Nome principal no estilo manuscrito e elegante do modelo "Dominic" */
+.nome-bebe { 
+    font-family: 'Pacifico', cursive; 
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+/* Títulos das seções e botões no estilo arredondado do modelo "Anthony / Vicente" */
+h1, h2, h3, .menu-logo, .btn-confirmar { 
+    font-family: 'Fredoka', sans-serif; 
 }
 
 h1, h2, h3 { 
