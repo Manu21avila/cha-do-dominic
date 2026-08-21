@@ -1,3 +1,24 @@
+// Lógica do Menu Hambúrguer para Mobile
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+
+if (hamburger && navMenu) {
+    // Abrir/Fechar menu ao clicar no botão
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+    });
+
+    // Fechar o menu automaticamente ao clicar em qualquer link
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        });
+    });
+}
+
 // CONTAGEM REGRESSIVA (22/11/2026 às 15h)
 const dataEvento = new Date('2026-11-22T15:00:00').getTime();
 

@@ -390,6 +390,119 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     transform: translateY(-2px);
 }
 
+/* ==========================================
+   CABEÇALHO E MENU RESPONSIVO (MOBILE)
+========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--azul-escuro, #2b4c7e);
+    text-decoration: none;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #4a5568;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: var(--azul-principal, #4a90e2);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--azul-escuro, #2b4c7e);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* REGRA PARA CELULARES (Telas até 768px) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Exibe o botão de 3 listrinhas */
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: -100%; /* Esconde o menu para fora da tela */
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgba(255, 255, 255, 0.98);
+        transition: left 0.3s ease;
+        padding-top: 30px;
+    }
+
+    .nav-menu.active {
+        left: 0; /* Desliza o menu para dentro ao clicar */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .nav-link {
+        font-size: 1.2rem;
+    }
+
+    /* Animação do botão Hambúrguer virando um 'X' */
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
 /* RESPONSIVIDADE (MOBILE) */
 @media (max-width: 600px) {
     .nome-bebe { font-size: 3.4rem; }
