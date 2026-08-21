@@ -16,29 +16,29 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* Corpo e parágrafos com escrita suave, arredondada e acolhedora */
 body { 
     font-family: 'Nunito', sans-serif; 
     background-color: var(--bege-suave); 
     color: var(--cinza-texto); 
     text-align: center;
-    line-height: 1.6;
+    line-height: 1.65;
+    font-weight: 500;
 }
 
-/* Nome principal no estilo manuscrito e elegante do modelo "Dominic" */
+/* Títulos, destaques e botões em todo o site */
+h1, h2, h3, .menu-logo, .btn-confirmar, .btn-principal, .contador-item span, .evento-data, label, input, select, textarea { 
+    font-family: 'Quicksand', sans-serif; 
+}
+
+/* Nome do bebê com caligrafia delicada */
 .nome-bebe { 
-    font-family: 'Pacifico', cursive; 
-    font-weight: 400;
-    letter-spacing: 1px;
-}
-
-/* Títulos das seções e botões no estilo arredondado do modelo "Anthony / Vicente" */
-h1, h2, h3, .menu-logo, .btn-confirmar { 
-    font-family: 'Fredoka', sans-serif; 
-}
-
-h1, h2, h3 { 
-    font-family: 'Outfit', sans-serif; 
-    letter-spacing: -0.02em;
+    font-family: 'Dancing Script', cursive !important; 
+    font-size: 4.8rem;
+    font-weight: 700;
+    color: var(--azul-principal);
+    line-height: 1.1;
+    margin: 5px 0 15px;
 }
 
 /* HERO */
@@ -48,11 +48,10 @@ h1, h2, h3 {
     justify-content: center; 
     align-items: center; 
     background: linear-gradient(180deg, var(--azul-claro) 0%, var(--bege-suave) 100%); 
-    padding: 60px 20px; 
+    padding: 110px 20px 60px; 
 }
 .hero-content { max-width: 650px; }
-.subtitulo-topo { font-size: 1.1rem; color: var(--azul-escuro); font-weight: 500; display: block; margin-bottom: 10px; }
-.nome-bebe { font-size: 4.2rem; color: var(--azul-principal); margin: 5px 0 15px; font-weight: 700; }
+.subtitulo-topo { font-size: 1.1rem; color: var(--azul-escuro); font-weight: 600; display: block; margin-bottom: 10px; }
 .frase-boas-vindas { font-size: 1.2rem; font-weight: 500; margin-bottom: 30px; }
 .data-destaque { font-size: 1.1rem; font-weight: 700; color: var(--azul-escuro); background: var(--branco); padding: 12px 24px; border-radius: 40px; display: inline-block; box-shadow: 0 4px 20px var(--sombra); border: 1px solid var(--cinza-suave); margin-bottom: 25px; }
 
@@ -61,7 +60,7 @@ h1, h2, h3 {
     background-color: var(--azul-principal); 
     color: var(--branco); 
     text-decoration: none; 
-    font-weight: 600; 
+    font-weight: 700; 
     padding: 16px 36px; 
     border-radius: 40px; 
     border: none; 
@@ -76,10 +75,10 @@ h1, h2, h3 {
 h2 { font-size: 2.3rem; color: var(--azul-escuro); margin-bottom: 10px; font-weight: 700; }
 .subtitulo-secao { margin-bottom: 35px; opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 1.05rem; }
 
-/* CONTAGEM */
+/* CONTAGEM REGRESSIVA */
 .contador { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 .contador-item { background: var(--bege-card); padding: 22px 18px; border-radius: 18px; min-width: 95px; box-shadow: 0 10px 25px var(--sombra); border: 1px solid var(--cinza-suave); }
-.contador-item span { font-family: 'Outfit', sans-serif; font-size: 2.4rem; color: var(--azul-principal); display: block; font-weight: 700; }
+.contador-item span { font-size: 2.4rem; color: var(--azul-principal); display: block; font-weight: 700; }
 .contador-item p { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--azul-escuro); }
 
 /* HISTÓRIA */
@@ -97,7 +96,7 @@ h2 { font-size: 2.3rem; color: var(--azul-escuro); margin-bottom: 10px; font-wei
 /* PRESENTES */
 .card-aviso-presentes { background: var(--bege-card); max-width: 680px; margin: 0 auto 35px; padding: 32px 25px; border-radius: 22px; box-shadow: 0 10px 25px var(--sombra); border: 1px solid var(--cinza-suave); }
 .frase-carinho { font-size: 1.05rem; margin-bottom: 22px; }
-.btn-lista-externa { display: inline-block; background-color: var(--azul-principal); color: var(--branco); font-weight: 600; text-decoration: none; padding: 14px 30px; border-radius: 30px; transition: 0.25s; }
+.btn-lista-externa { display: inline-block; background-color: var(--azul-principal); color: var(--branco); font-weight: 700; text-decoration: none; padding: 14px 30px; border-radius: 30px; transition: 0.25s; }
 .btn-lista-externa:hover { background-color: var(--azul-escuro); }
 
 .grid-presentes { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
@@ -105,75 +104,51 @@ h2 { font-size: 2.3rem; color: var(--azul-escuro); margin-bottom: 10px; font-wei
 .tag-tamanho { position: absolute; top: 15px; right: 15px; background: var(--azul-claro); color: var(--azul-escuro); font-weight: 700; font-size: 0.75rem; padding: 4px 10px; border-radius: 12px; }
 .card-presente h3 { margin-top: 8px; font-size: 1.2rem; color: var(--azul-escuro); }
 .card-presente p { font-size: 0.9rem; margin: 8px 0 18px; opacity: 0.8; }
-.btn-presente { background: var(--azul-claro); color: var(--azul-escuro); border: 1px solid var(--cinza-suave); padding: 10px 20px; border-radius: 20px; font-weight: 600; cursor: pointer; transition: 0.2s; font-family: inherit; }
+.btn-presente { background: var(--azul-claro); color: var(--azul-escuro); border: 1px solid var(--cinza-suave); padding: 10px 20px; border-radius: 20px; font-weight: 700; cursor: pointer; transition: 0.2s; font-family: 'Quicksand', sans-serif; }
 .btn-presente:hover { background: var(--azul-principal); color: var(--branco); }
 .card-presente.selecionado { border-color: var(--azul-principal); background-color: var(--azul-claro); }
 
-/* CONFIRMAÇÃO */
-.form-confirmacao { max-width: 520px; margin: 0 auto; background: var(--bege-card); padding: 35px; border-radius: 24px; box-shadow: 0 12px 30px var(--sombra); border: 1px solid var(--cinza-suave); display: flex; flex-direction: column; gap: 16px; }
-.form-confirmacao input, .form-confirmacao select, .form-confirmacao textarea { width: 100%; padding: 14px 18px; border-radius: 14px; border: 1px solid var(--cinza-suave); font-family: inherit; font-size: 0.95rem; outline: none; background: var(--bege-suave); }
-.form-confirmacao input:focus, .form-confirmacao select:focus, .form-confirmacao textarea:focus { border-color: var(--azul-principal); background: var(--branco); }
-
 /* MAPA */
 .mapa-container { max-width: 850px; margin: 0 auto 20px; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 30px var(--sombra); border: 1px solid var(--cinza-suave); }
-.btn-rota { display: inline-block; color: var(--azul-escuro); font-weight: 600; text-decoration: none; background: var(--azul-claro); padding: 12px 28px; border-radius: 30px; border: 1px solid var(--cinza-suave); transition: 0.2s; }
+.btn-rota { display: inline-block; color: var(--azul-escuro); font-weight: 700; text-decoration: none; background: var(--azul-claro); padding: 12px 28px; border-radius: 30px; border: 1px solid var(--cinza-suave); transition: 0.2s; }
 .btn-rota:hover { background: var(--azul-principal); color: var(--branco); }
 
 /* RODAPÉ */
 footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; color: var(--azul-escuro); font-weight: 600; border-top: 1px solid var(--cinza-suave); }
 
-/* ==============================
-   MENU DE NAVEGAÇÃO
-================================ */
-
+/* MENU DE NAVEGAÇÃO */
 .menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-
     z-index: 1000;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     padding: 14px 35px;
-
     background: rgba(255, 255, 255, 0.92);
-
     backdrop-filter: blur(10px);
-
     border-bottom: 1px solid var(--cinza-suave);
-
     box-shadow: 0 4px 20px rgba(43, 76, 111, 0.05);
 }
 
 .menu-logo {
-    font-family: 'Outfit', sans-serif;
-
     font-size: 1.3rem;
-
     font-weight: 700;
-
     color: var(--azul-principal);
 }
 
 .menu-links {
     display: flex;
-
     gap: 25px;
 }
 
 .menu-links a {
     text-decoration: none;
-
     color: var(--azul-escuro);
-
-    font-size: 0.9rem;
-
+    font-size: 0.95rem;
     font-weight: 600;
-
     transition: 0.2s;
 }
 
@@ -181,72 +156,43 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     color: var(--azul-principal);
 }
 
-
-/* Espaço para o menu não cobrir o conteúdo */
-
-.hero {
-    padding-top: 110px;
-}
-
-/* ==============================
-   MOMENTOS ESPECIAIS
-================================ */
-
+/* MOMENTOS ESPECIAIS */
 .secoes-evento {
     padding: 80px 20px;
-
     background: var(--azul-claro);
 }
 
 .titulo-evento {
     font-size: 0.85rem;
-
     font-weight: 700;
-
     letter-spacing: 0.15em;
-
     color: var(--azul-principal);
-
     margin-bottom: 8px;
 }
 
 .eventos-grid {
     max-width: 850px;
-
     margin: 40px auto 0;
-
     display: grid;
-
     grid-template-columns: repeat(2, 1fr);
-
     gap: 25px;
 }
 
 .evento-card {
     display: flex;
-
     align-items: center;
-
     gap: 25px;
-
     text-align: left;
-
     background: var(--branco);
-
     padding: 30px;
-
     border-radius: 24px;
-
     border: 1px solid var(--cinza-suave);
-
     box-shadow: 0 10px 25px var(--sombra);
-
     transition: 0.3s ease;
 }
 
 .evento-card:hover {
     transform: translateY(-5px);
-
     box-shadow: 0 15px 35px rgba(43, 76, 111, 0.10);
 }
 
@@ -256,63 +202,42 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 
 .evento-data {
     min-width: 75px;
-
     height: 75px;
-
     display: flex;
-
     flex-direction: column;
-
     justify-content: center;
-
     align-items: center;
-
     background: var(--azul-claro);
-
     border-radius: 18px;
-
     color: var(--azul-principal);
-
-    font-family: 'Outfit', sans-serif;
-
     font-size: 2rem;
-
     font-weight: 700;
 }
 
 .evento-data span {
     font-size: 0.75rem;
-
     letter-spacing: 0.08em;
 }
 
 .evento-tag {
     font-size: 0.7rem;
-
     font-weight: 700;
-
     letter-spacing: 0.12em;
-
     color: var(--azul-principal);
 }
 
 .evento-conteudo h3 {
     color: var(--azul-escuro);
-
     margin: 5px 0 8px;
-
     font-size: 1.3rem;
 }
 
 .evento-conteudo p {
     font-size: 0.9rem;
-
     line-height: 1.6;
 }
 
-/* ==============================
-   PRELOADER COM O SELO DO DOMINIC
-================================ */
+/* PRELOADER */
 #preloader {
     position: fixed;
     top: 0;
@@ -355,11 +280,9 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 }
 
 .preloader-content p {
-    font-family: 'Outfit', sans-serif;
     color: var(--azul-escuro);
     font-weight: 600;
     font-size: 0.95rem;
-    letter-spacing: 0.02em;
 }
 
 #preloader.oculto {
@@ -379,59 +302,21 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     50% { transform: translateY(-8px); }
 }
 
-@media (max-width: 600px) {
-    .nome-bebe { font-size: 3.2rem; }
-    .contador-item { min-width: 75px; padding: 16px 10px; }
-}
-
-.menu {
-    padding: 12px 18px;
-}
-
-.menu-logo {
-    font-size: 1.1rem;
-}
-
-.menu-links {
-    gap: 12px;
-}
-
-.menu-links a {
-    font-size: 0.72rem;
-}
-
-.hero {
-    padding-top: 100px;
-}
-
-.eventos-grid {
-    grid-template-columns: 1fr;
-}
-
-.evento-card {
-    padding: 22px;
-
-    gap: 18px;
-}
-
-/* ==============================
-   ESTILIZAÇÃO DO FORMULÁRIO RSVP
-================================ */
+/* FORMULÁRIO RSVP (CONFIRMAÇÃO) */
 .rsvp-section {
     padding: 60px 20px;
     text-align: center;
-    background-color: var(--bege-suave, #fdfbf7);
+    background-color: var(--bege-suave);
 }
 
 .rsvp-section h2 {
-    font-family: 'Outfit', sans-serif;
-    color: var(--azul-escuro, #1a365d);
-    font-size: 2rem;
+    color: var(--azul-escuro);
+    font-size: 2.2rem;
     margin-bottom: 10px;
 }
 
 .rsvp-section p {
-    color: #666;
+    color: var(--cinza-texto);
     margin-bottom: 30px;
 }
 
@@ -454,9 +339,8 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 }
 
 .form-group label {
-    font-family: 'Outfit', sans-serif;
-    color: #1a365d;
-    font-weight: 600;
+    color: var(--azul-escuro);
+    font-weight: 700;
     font-size: 0.95rem;
 }
 
@@ -465,11 +349,10 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 .form-group textarea {
     width: 100%;
     padding: 12px 15px;
-    border: 2px solid #e0e6ed;
-    border-radius: 10px;
-    font-family: 'Outfit', sans-serif;
+    border: 2px solid var(--cinza-suave);
+    border-radius: 12px;
     font-size: 0.95rem;
-    color: #333333;
+    color: var(--cinza-texto);
     background-color: #f9fbfd;
     outline: none;
     transition: border-color 0.3s;
@@ -479,7 +362,7 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-    border-color: #3b82f6;
+    border-color: var(--azul-principal);
     background-color: #ffffff;
 }
 
@@ -489,20 +372,33 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
 
 .btn-confirmar {
     width: 100%;
-    background-color: #3b82f6;
+    background-color: var(--azul-principal);
     color: #ffffff;
     border: none;
     padding: 14px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
     border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s;
     margin-top: 10px;
+    box-shadow: 0 6px 20px rgba(77, 130, 184, 0.25);
 }
 
 .btn-confirmar:hover {
-    background-color: #1d4ed8;
+    background-color: var(--azul-escuro);
     transform: translateY(-2px);
+}
+
+/* RESPONSIVIDADE (MOBILE) */
+@media (max-width: 600px) {
+    .nome-bebe { font-size: 3.4rem; }
+    .contador-item { min-width: 75px; padding: 16px 10px; }
+    .menu { padding: 12px 18px; }
+    .menu-logo { font-size: 1.1rem; }
+    .menu-links { gap: 12px; }
+    .menu-links a { font-size: 0.75rem; }
+    .hero { padding-top: 100px; }
+    .eventos-grid { grid-template-columns: 1fr; }
+    .evento-card { padding: 22px; gap: 18px; }
 }
