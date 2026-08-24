@@ -38,8 +38,9 @@
             <nav class="nav-menu" id="nav-menu">
                 <ul>
                     <li><a href="#inicio" class="nav-link">Início</a></li>
-                    <li><a href="#evento" class="nav-link">Eventos</a></li>
                     <li><a href="#historia" class="nav-link">Nossa História</a></li>
+                    <li><a href="#galeria" class="nav-link">Fotos</a></li>
+                    <li><a href="#evento" class="nav-link">Eventos</a></li>
                     <li><a href="#presentes" class="nav-link">Presentes</a></li>
                     <li><a href="#confirmacao" class="nav-link btn-nav">Confirmar Presença</a></li>
                 </ul>
@@ -64,7 +65,7 @@
     <!-- NOSSA HISTÓRIA / MENSAGEM ACOLHEDORA -->
     <section class="secao-historia" id="historia">
         <h2>💙 Nossa Fase Especial</h2>
-        <div class="card-historia">
+        <div class="card-historia reveal">
             <p>No início do ano, durante as 12 Noites, fizemos um pedido especial que guardamos com carinho no coração. Mal sabíamos que, alguns meses depois, nossa história ganharia um capítulo completamente novo, trazendo a resposta tão esperada. ✨</p>
             <p>No dia 06/05, descobrimos que um pequeno coração já fazia parte da nossa história. O papai foi o primeiro a saber e, poucos dias depois, no dia 10/05, contamos para os familiares mais próximos. Aos poucos, durante o mês de maio, fomos compartilhando a novidade com alguns amigos especiais.</p>
             <p>No meio de toda essa emoção, também enfrentamos dias de preocupação, pois o Clenio precisou ser internado e passou por uma cirurgia. Foram dias de muita fé e ansiedade, até finalmente recebermos a alta, depois de um mês no hospital, no dia 08/06. 🙏💙 E, no dia 11/06, chegou o momento de contar para todos que o nosso pequeno estava a caminho!</p>
@@ -77,7 +78,26 @@
         </div>
     </section>
 
-    <!-- MOMENTOS ESPECIAIS — AGORA EM ABAS, CADA UM COM SUAS PRÓPRIAS INFORMAÇÕES -->
+    <!-- GALERIA DE FOTOS -->
+    <section class="galeria-secao" id="galeria">
+        <h2 class="reveal">Nossos Momentos 📸</h2>
+        <p class="subtitulo-secao reveal">Alguns registros dessa espera tão especial.</p>
+
+        <div class="galeria-wrapper reveal">
+            <button class="galeria-seta galeria-seta-esq" id="galeria-prev" aria-label="Foto anterior">‹</button>
+            <div class="galeria-carrossel" id="galeria-carrossel">
+                <div class="galeria-item"><img src="img/fotos/foto-1.png" alt="Momento especial 1" loading="lazy"></div>
+                <div class="galeria-item"><img src="img/fotos/foto-2.png" alt="Momento especial 2" loading="lazy"></div>
+                <div class="galeria-item"><img src="img/fotos/foto-3.png" alt="Momento especial 3" loading="lazy"></div>
+                <div class="galeria-item"><img src="img/fotos/foto-4.png" alt="Momento especial 4" loading="lazy"></div>
+                <div class="galeria-item"><img src="img/fotos/foto-5.png" alt="Momento especial 5" loading="lazy"></div>
+                <div class="galeria-item"><img src="img/fotos/foto-6.png" alt="Momento especial 6" loading="lazy"></div>
+            </div>
+            <button class="galeria-seta galeria-seta-dir" id="galeria-next" aria-label="Próxima foto">›</button>
+        </div>
+    </section>
+
+    <!-- MOMENTOS ESPECIAIS — EM ABAS, CADA UM COM SUAS PRÓPRIAS INFORMAÇÕES -->
     <section class="secoes-evento" id="evento">
 
         <p class="titulo-evento">UM FIM DE SEMANA ESPECIAL</p>
@@ -99,7 +119,7 @@
 
         <!-- PAINEL: CHÁ DE BÊNÇÃOS -->
         <div class="painel-evento active" id="painel-bencaos" data-date="2026-11-22T15:00:00" data-evento-label="Chá de Bênçãos (22/11 às 15h)">
-            <article class="evento-card destaque evento-card-painel">
+            <article class="evento-card destaque evento-card-painel reveal">
                 <div class="evento-data">
                     22
                     <span>NOV</span>
@@ -108,7 +128,7 @@
                 <div class="evento-conteudo">
                     <span class="evento-tag">DOMINGO</span>
                     <h3>Chá de Bênçãos 💙</h3>
-                    <p>Um momento especial da mamãe com as amigas onde haverá carinho, oração, muitas risadas e celebração pela chegada do Dominic.</p>
+                    <p>Um momento especial da mamãe com as amigas onde haverá carinho, oração, muitas risadas e celebração pela chegada do Dominic. ✨</p>
                 </div>
             </article>
 
@@ -120,11 +140,16 @@
             </div>
 
             <h3 class="titulo-local">Como Chegar</h3>
-            <p class="subtitulo-secao">Salão de festas — Condomínio Ecoville · Av. Ecoville, 790 - Sarandi, Porto Alegre - RS</p>
-            <div class="mapa-container">
+            <p class="subtitulo-secao" data-endereco="Salão de festas — Condomínio Ecoville, Av. Ecoville, 790 - Sarandi, Porto Alegre - RS">Salão de festas — Condomínio Ecoville · Av. Ecoville, 790 - Sarandi, Porto Alegre - RS</p>
+            <div class="mapa-container reveal">
                 <iframe src="https://maps.google.com/maps?q=Av.%20Ecoville%2C%20790%20-%20Sarandi%2C%20Porto%20Alegre%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=Av.+Ecoville%2C+790+-+Sarandi%2C+Porto+Alegre+-+RS" target="_blank" class="btn-rota">Abrir no GPS / Google Maps 🧭</a>
+
+            <div class="acoes-local">
+                <a href="https://www.google.com/maps/search/?api=1&query=Av.+Ecoville%2C+790+-+Sarandi%2C+Porto+Alegre+-+RS" target="_blank" class="btn-rota">Abrir no GPS 🧭</a>
+                <button class="btn-copiar" data-endereco="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS">📋 Copiar endereço</button>
+                <a href="#" class="btn-whatsapp" data-evento-share="Chá de Bênçãos" data-data-share="22/11 às 15h" data-endereco-share="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS" target="_blank" rel="noopener">💬 Compartilhar no WhatsApp</a>
+            </div>
 
             <br>
             <button class="btn-confirmar-painel" data-evento-alvo="Chá de Bênçãos (22/11 às 15h)">Confirmar presença no Chá de Bênçãos</button>
@@ -132,7 +157,7 @@
 
         <!-- PAINEL: ENTREVEIRO FRALDAS -->
         <div class="painel-evento" id="painel-entreveiro" data-date="2026-11-21T11:00:00" data-evento-label="Entreveiro Fraldas (21/11 às 11h)">
-            <article class="evento-card evento-card-painel">
+            <article class="evento-card evento-card-painel reveal">
                 <div class="evento-data">
                     21
                     <span>NOV</span>
@@ -141,7 +166,7 @@
                 <div class="evento-conteudo">
                     <span class="evento-tag">SÁBADO</span>
                     <h3>Entreveiro Fraldas 🍼</h3>
-                    <p>Um momento descontraído entre o papai com os amigos e família, para dar muita risada, receber conselhos e orações, e claro, garantir um estoque de fraldas para a chegada do nosso pequeno.</p>
+                    <p>Um encontro especial para os homens da família e amigos, com muita conversa, descontração e um delicioso entreveiro para celebrar a chegada do Dominic. 🍖💙</p>
                 </div>
             </article>
 
@@ -153,11 +178,16 @@
             </div>
 
             <h3 class="titulo-local">Como Chegar</h3>
-            <p class="subtitulo-secao">R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS</p>
-            <div class="mapa-container">
+            <p class="subtitulo-secao" data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS">R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS</p>
+            <div class="mapa-container reveal">
                 <iframe src="https://maps.google.com/maps?q=R.%20Ernesto%20Dorneles%2C%20230%20-%20Formoza%2C%20Alvorada%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=R.+Ernesto+Dorneles%2C+230+-+Formoza%2C+Alvorada+-+RS" target="_blank" class="btn-rota">Abrir no GPS / Google Maps 🧭</a>
+
+            <div class="acoes-local">
+                <a href="https://www.google.com/maps/search/?api=1&query=R.+Ernesto+Dorneles%2C+230+-+Formoza%2C+Alvorada+-+RS" target="_blank" class="btn-rota">Abrir no GPS 🧭</a>
+                <button class="btn-copiar" data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS">📋 Copiar endereço</button>
+                <a href="#" class="btn-whatsapp" data-evento-share="Entreveiro Fraldas" data-data-share="21/11 às 11h" data-endereco-share="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS" target="_blank" rel="noopener">💬 Compartilhar no WhatsApp</a>
+            </div>
 
             <br>
             <button class="btn-confirmar-painel" data-evento-alvo="Entreveiro Fraldas (21/11 às 11h)">Confirmar presença no Entreveiro</button>
@@ -169,7 +199,7 @@
         <h2>Sugestões de Mimos 🎁</h2>
         <p class="subtitulo-secao">🎁 <strong>Sugestão de presente: FRALDAS 😅</strong><br>(Caso queira acrescentar um mimo, preparamos uma listinha com muito carinho — vale para os dois eventos)</p>
 
-        <div class="card-aviso-presentes">
+        <div class="card-aviso-presentes reveal">
             <p class="frase-carinho">A sua presença é o nosso maior presente! Se quiser conferir nossa pré-lista completa online com sugestões de mimos, acesse:</p>
             <a href="https://cha-do-dom.listaideal.com.br/pt" target="_blank" class="btn-lista-externa">Acessar Lista Completa Online 🎁</a>
         </div>
@@ -180,7 +210,7 @@
         <h2>Confirmação de Presença ✈️</h2>
         <p>Por favor, confirme sua presença até o dia 10/11/2026 para organizarmos tudo com muito carinho! 🎉💙</p>
 
-        <div class="form-container">
+        <div class="form-container reveal">
             <!-- Cole a sua URL do Formspree no campo action abaixo -->
             <form id="rsvp-form" action="https://formspree.io/f/meajdqpz" method="POST">
 
@@ -227,6 +257,7 @@
         <p>Feito com muito amor pelos papais para celebrar a chegada do Dominic 💙</p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

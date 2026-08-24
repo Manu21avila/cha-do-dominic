@@ -1,3 +1,10 @@
+// ==========================================
+// ENDEREÇO DO SITE — usado no botão de WhatsApp.
+// Troque pela URL real assim que o site estiver publicado
+// (ex.: GitHub Pages, domínio próprio, etc.)
+// ==========================================
+const URL_DO_SITE = 'https://manu21avila.github.io/cha-do-dominic/';
+
 // Lógica do Menu Hambúrguer para Mobile
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
@@ -175,6 +182,7 @@ if (rsvpForm) {
                 icone = '🎉';
                 titulo = 'Presença Confirmada!';
                 texto = `Muito obrigado por confirmar! Mal podemos esperar para comemorar ${nomeEvento} com você! 🥳💙`;
+                dispararConfete();
             } else {
                 icone = '🩵';
                 titulo = 'Resposta Registrada!';
@@ -202,3 +210,130 @@ if (rsvpForm) {
         });
     });
 }
+
+// ==========================================
+// CONFETE NA CONFIRMAÇÃO DE PRESENÇA
+// ==========================================
+function dispararConfete() {
+    if (typeof confetti !== 'function') return;
+
+    const cores = ['#4d82b8', '#2b4c6f', '#eaf2f8', '#ffffff'];
+
+    confetti({
+        particleCount: 120,
+        spread: 80,
+        origin: { y: 0.6 },
+        colors: cores
+    });
+
+    setTimeout(() => {
+        confetti({
+            particleCount: 60,
+            angle: 60,
+            spread: 70,
+            origin: { x: 0, y: 0.6 },
+            colors: cores
+        });
+        confetti({
+            particleCount: 60,
+            angle: 120,
+            spread: 70,
+            origin: { x: 1, y: 0.6 },
+            colors: cores
+        });
+    }, 250);
+}
+
+// ==========================================
+// MENU COM DESTAQUE AUTOMÁTICO (SCROLL SPY)
+// ==========================================
+const secoesComNav = document.querySelectorAll('section[id]');
+const linksDoMenu = document.querySelectorAll('.nav-link');
+
+if (secoesComNav.length && linksDoMenu.length) {
+    const observerMenu = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                linksDoMenu.forEach(link => {
+                    const alvo = link.getAttribute('href') === '#' + id;
+                    link.classList.toggle('active', alvo);
+                });
+            }
+        });
+    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+    secoesComNav.forEach(secao => observerMenu.observe(secao));
+}
+
+// ==========================================
+// ANIMAÇÃO SUAVE AO ROLAR (FADE-IN)
+// ==========================================
+const elementosReveal = document.querySelectorAll('.reveal');
+
+if (elementosReveal.length) {
+    const observerReveal = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visivel');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    elementosReveal.forEach(el => observerReveal.observe(el));
+}
+
+// ==========================================
+// GALERIA DE FOTOS — SETAS DO CARROSSEL
+// ==========================================
+const galeriaCarrossel = document.getElementById('galeria-carrossel');
+const galeriaPrev = document.getElementById('galeria-prev');
+const galeriaNext = document.getElementById('galeria-next');
+
+if (galeriaCarrossel && galeriaPrev && galeriaNext) {
+    const rolarGaleria = (direcao) => {
+        const item = galeriaCarrossel.querySelector('.galeria-item');
+        const largura = item ? item.getBoundingClientRect().width + 16 : 300;
+        galeriaCarrossel.scrollBy({ left: direcao * largura, behavior: 'smooth' });
+    };
+
+    galeriaPrev.addEventListener('click', () => rolarGaleria(-1));
+    galeriaNext.addEventListener('click', () => rolarGaleria(1));
+}
+
+// ==========================================
+// COPIAR ENDEREÇO
+// ==========================================
+document.querySelectorAll('.btn-copiar').forEach(botao => {
+    botao.addEventListener('click', async () => {
+        const endereco = botao.dataset.endereco || '';
+        const textoOriginal = botao.textContent;
+
+        try {
+            await navigator.clipboard.writeText(endereco);
+            botao.textContent = '✅ Copiado!';
+            botao.classList.add('copiado');
+        } catch (erro) {
+            botao.textContent = 'Não foi possível copiar';
+        }
+
+        setTimeout(() => {
+            botao.textContent = textoOriginal;
+            botao.classList.remove('copiado');
+        }, 2000);
+    });
+});
+
+// ==========================================
+// COMPARTILHAR NO WHATSAPP
+// ==========================================
+document.querySelectorAll('.btn-whatsapp').forEach(botao => {
+    const evento = botao.dataset.eventoShare || '';
+    const dataEvento = botao.dataset.dataShare || '';
+    const endereco = botao.dataset.enderecoShare || '';
+
+    const mensagem = `Oi! Vim te chamar para o ${evento} do Dominic 💙\n\n🗓️ ${dataEvento}\n📍 ${endereco}\n\nConfirme sua presença e veja todos os detalhes aqui: ${URL_DO_SITE}`;
+
+    botao.href = 'https://wa.me/?text=' + encodeURIComponent(mensagem);
+});
