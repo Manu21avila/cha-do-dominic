@@ -76,7 +76,7 @@ h2 { font-size: 2.3rem; color: var(--azul-escuro); margin-bottom: 10px; font-wei
 .subtitulo-secao { margin-bottom: 35px; opacity: 0.9; max-width: 650px; margin-left: auto; margin-right: auto; font-size: 1.05rem; }
 
 /* CONTAGEM REGRESSIVA */
-.contador { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+.contador { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin: 30px 0; }
 .contador-item { background: var(--bege-card); padding: 22px 18px; border-radius: 18px; min-width: 95px; box-shadow: 0 10px 25px var(--sombra); border: 1px solid var(--cinza-suave); }
 .contador-item span { font-size: 2.4rem; color: var(--azul-principal); display: block; font-weight: 700; }
 .contador-item p { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--azul-escuro); }
@@ -514,4 +514,90 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     .hero { padding-top: 100px; }
     .eventos-grid { grid-template-columns: 1fr; }
     .evento-card { padding: 22px; gap: 18px; }
+}
+
+/* ==========================================================
+   ABAS DE EVENTOS — Chá de Bênçãos / Entreveiro Fraldas
+   (cada aba tem sua própria contagem, endereço e mapa)
+========================================================== */
+.evento-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 30px auto 45px;
+}
+
+.tab-evento-btn {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--azul-escuro);
+    background: var(--branco);
+    border: 2px solid var(--cinza-suave);
+    padding: 12px 26px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.tab-evento-btn:hover {
+    border-color: var(--azul-principal);
+}
+
+.tab-evento-btn.active {
+    background: var(--azul-principal);
+    border-color: var(--azul-principal);
+    color: var(--branco);
+    box-shadow: 0 6px 18px rgba(77, 130, 184, 0.3);
+}
+
+.painel-evento {
+    display: none;
+    max-width: 850px;
+    margin: 0 auto;
+    animation: fadeInPainel 0.4s ease;
+}
+
+.painel-evento.active {
+    display: block;
+}
+
+@keyframes fadeInPainel {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.evento-card-painel {
+    margin-bottom: 10px;
+}
+
+.titulo-local {
+    color: var(--azul-escuro);
+    font-size: 1.3rem;
+    margin: 35px 0 6px;
+}
+
+.btn-confirmar-painel {
+    font-family: 'Quicksand', sans-serif;
+    display: inline-block;
+    margin-top: 25px;
+    background: var(--azul-claro);
+    color: var(--azul-escuro);
+    border: 1px solid var(--cinza-suave);
+    font-weight: 700;
+    padding: 13px 28px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-confirmar-painel:hover {
+    background: var(--azul-principal);
+    color: var(--branco);
+}
+
+@media (max-width: 600px) {
+    .tab-evento-btn { flex: 1 1 auto; padding: 12px 16px; font-size: 0.85rem; }
+    .evento-card-painel { flex-direction: column; text-align: center; }
 }
