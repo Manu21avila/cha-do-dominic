@@ -25,9 +25,9 @@
 
     <!-- 1. TOPO / HERO (Logo do Dominic) -->
     <header class="hero-section">
-    <div class="logo-container">
-        <img src="foto-1.jpg" alt="Logo Chá do Dominic" class="hero-logo">
-    </div>
+        <div class="logo-container">
+            <img src="img/fotos/foto-1.png" alt="Logo Chá do Dominic" class="hero-logo">
+        </div>
     </header>
 
     <header class="header">
@@ -85,41 +85,45 @@
         </div>
     </section>
 
-    <!-- GALERIA DE FOTOS -->
-    <section class="galeria-section">
+    <!-- GALERIA DE FOTOS EM CARROSSEL -->
+    <section class="galeria-section" id="galeria">
         <h2>Nossa História & Memórias</h2>
         
-        <div class="carousel-container">
-            <!-- Ultrassons: O começo de tudo -->
-            <div class="carousel-slide">
-            <img src="foto-4.jpeg" alt="Ultrassom do Dominic - 9 semanas">
-            </div>
-            <div class="carousel-slide">
-            <img src="foto-5.jpeg" alt="Exames de Ultrassom do Dominic">
+        <div class="carousel-wrapper">
+            <button class="carousel-control prev" id="prevBtn" aria-label="Foto anterior">❮</button>
+            
+            <div class="carousel-container" id="carouselContainer">
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-2.jpeg" alt="Casal elegante em vestido azul e terno">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-3.jpeg" alt="Casal sorrindo na cozinha">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-4.jpeg" alt="Ultrassom do Dominic - 9 semanas">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-5.jpeg" alt="Exames de Ultrassom do Dominic">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-6.jpeg" alt="Lendo para o Dominic">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-7.jpeg" alt="Aguardando a chegada do Dominic">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-8.jpeg" alt="Comemoração e a barriguinha crescendo">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/fotos/foto-9.jpeg" alt="Casal ao ar livre celebrando">
+                </div>
             </div>
 
-            <!-- Momentos do casal em casa -->
-            <div class="carousel-slide">
-            <img src="foto-6.jpeg" alt="Lendo para o Dominic">
-            </div>
-            <div class="carousel-slide">
-            <img src="foto-7.jpeg" alt="Aguardando a chegada do Dominic">
-            </div>
-            <div class="carousel-slide">
-            <img src="foto-3.jpeg" alt="Casal sorrindo na cozinha">
-            </div>
-            <div class="carousel-slide">
-            <img src="foto-8.jpeg" alt="Comemoração e a barriguinha crescendo">
-            </div>
-
-            <!-- Fotos de gala / festa -->
-            <div class="carousel-slide">
-            <img src="foto-2.jpeg" alt="Casal elegante em vestido azul e terno">
-            </div>
-            <div class="carousel-slide">
-            <img src="foto-9.jpg" alt="Casal ao ar livre celebrando">
-            </div>
+            <button class="carousel-control next" id="nextBtn" aria-label="Próxima foto">❯</button>
         </div>
+
+        <!-- Indicadores (Bolinhas) -->
+        <div class="carousel-indicators" id="carouselIndicators"></div>
     </section>
 
     <!-- MOMENTOS ESPECIAIS — EM ABAS, CADA UM COM SUAS PRÓPRIAS INFORMAÇÕES -->
@@ -236,7 +240,6 @@
         <p>Por favor, confirme sua presença até o dia 10/11/2026 para organizarmos tudo com muito carinho! 🎉💙</p>
 
         <div class="form-container reveal">
-            <!-- Cole a sua URL do Formspree no campo action abaixo -->
             <form id="rsvp-form" action="https://formspree.io/f/meajdqpz" method="POST">
 
                 <div class="form-group">

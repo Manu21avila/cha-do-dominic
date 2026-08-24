@@ -285,21 +285,20 @@ if (elementosReveal.length) {
 }
 
 // ==========================================
-// GALERIA DE FOTOS — SETAS DO CARROSSEL
+// GALERIA DE FOTOS — CARROSSEL CORRIGIDO
 // ==========================================
-const galeriaCarrossel = document.getElementById('galeria-carrossel');
-const galeriaPrev = document.getElementById('galeria-prev');
-const galeriaNext = document.getElementById('galeria-next');
+const carouselContainer = document.getElementById('carouselContainer') || document.getElementById('galeria-carrossel');
+const prevBtn = document.getElementById('prevBtn') || document.getElementById('galeria-prev');
+const nextBtn = document.getElementById('nextBtn') || document.getElementById('galeria-next');
 
-if (galeriaCarrossel && galeriaPrev && galeriaNext) {
-    const rolarGaleria = (direcao) => {
-        const item = galeriaCarrossel.querySelector('.galeria-item');
-        const largura = item ? item.getBoundingClientRect().width + 16 : 300;
-        galeriaCarrossel.scrollBy({ left: direcao * largura, behavior: 'smooth' });
-    };
+if (carouselContainer && prevBtn && nextBtn) {
+    nextBtn.addEventListener('click', () => {
+        carouselContainer.scrollBy({ left: 310, behavior: 'smooth' });
+    });
 
-    galeriaPrev.addEventListener('click', () => rolarGaleria(-1));
-    galeriaNext.addEventListener('click', () => rolarGaleria(1));
+    prevBtn.addEventListener('click', () => {
+        carouselContainer.scrollBy({ left: -310, behavior: 'smooth' });
+    });
 }
 
 // ==========================================
