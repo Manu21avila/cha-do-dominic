@@ -237,6 +237,17 @@ footer { padding: 30px 20px; background: var(--azul-claro); font-size: 0.95rem; 
     line-height: 1.6;
 }
 
+/* LOGO */
+.hero-logo {
+  max-width: 280px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%; /* Mantém o formato arredondado bonito */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  display: block;
+}
+
 /* PRELOADER */
 #preloader {
     position: fixed;
