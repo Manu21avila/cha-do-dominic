@@ -1,338 +1,847 @@
 // ==========================================
-// ENDEREÇO DO SITE — usado no botão de WhatsApp.
-// Troque pela URL real assim que o site estiver publicado
-// (ex.: GitHub Pages, domínio próprio, etc.)
+// CONFIGURAÇÕES GERAIS
 // ==========================================
+
+// Endereço do site usado no compartilhamento pelo WhatsApp.
 const URL_DO_SITE = 'https://manu21avila.github.io/cha-do-dominic/';
 
-// Lógica do Menu Hambúrguer para Mobile
+
+// ==========================================
+// MENU DE NAVEGAÇÃO
+// Desktop: menu horizontal
+// Mobile: menu vertical com hambúrguer
+// ==========================================
+
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 
 if (hamburger && navMenu) {
-    // Abrir/Fechar menu ao clicar no botão
+
     hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
+
+        const menuAberto = hamburger.classList.toggle('active');
+
         navMenu.classList.toggle('active');
+
+        hamburger.setAttribute(
+            'aria-label',
+            menuAberto ? 'Fechar menu' : 'Abrir menu'
+        );
+
+        hamburger.setAttribute(
+            'aria-expanded',
+            menuAberto ? 'true' : 'false'
+        );
     });
 
-    // Fechar o menu automaticamente ao clicar em qualquer link
+
+    // Fecha o menu ao clicar em um link.
     navLinks.forEach(link => {
+
         link.addEventListener('click', () => {
+
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+
+            hamburger.setAttribute('aria-label', 'Abrir menu');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
+
     });
 }
 
+
 // ==========================================
-// CONTAGEM REGRESSIVA — UMA PARA CADA EVENTO
-// Cada .painel-evento tem seu próprio data-date
-// e seus próprios elementos [data-unit] dentro dele.
+// CONTAGEM REGRESSIVA DOS EVENTOS
+// Cada painel possui seu próprio data-date.
 // ==========================================
+
 const paineisEvento = document.querySelectorAll('.painel-evento');
 
 function atualizarContagens() {
+
     paineisEvento.forEach(painel => {
-        const dataEvento = new Date(painel.dataset.date).getTime();
-        const agora = new Date().getTime();
+
+        const dataEvento = new Date(
+            painel.dataset.date
+        ).getTime();
+
+        const agora = Date.now();
+
         const diferenca = dataEvento - agora;
 
         const elDias = painel.querySelector('[data-unit="dias"]');
         const elHoras = painel.querySelector('[data-unit="horas"]');
-        const elMin = painel.querySelector('[data-unit="minutos"]');
-        const elSeg = painel.querySelector('[data-unit="segundos"]');
+        const elMinutos = painel.querySelector('[data-unit="minutos"]');
+        const elSegundos = painel.querySelector('[data-unit="segundos"]');
+
 
         if (diferenca > 0) {
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
 
-            if (elDias) elDias.innerText = dias < 10 ? '0' + dias : dias;
-            if (elHoras) elHoras.innerText = horas < 10 ? '0' + horas : horas;
-            if (elMin) elMin.innerText = minutos < 10 ? '0' + minutos : minutos;
-            if (elSeg) elSeg.innerText = segundos < 10 ? '0' + segundos : segundos;
+            const dias = Math.floor(
+                diferenca / (1000 * 60 * 60 * 24)
+            );
+
+            const horas = Math.floor(
+                (diferenca % (1000 * 60 * 60 * 24))
+                / (1000 * 60 * 60)
+            );
+
+            const minutos = Math.floor(
+                (diferenca % (1000 * 60 * 60))
+                / (1000 * 60)
+            );
+
+            const segundos = Math.floor(
+                (diferenca % (1000 * 60))
+                / 1000
+            );
+
+
+            if (elDias) {
+                elDias.textContent = String(dias).padStart(2, '0');
+            }
+
+            if (elHoras) {
+                elHoras.textContent = String(horas).padStart(2, '0');
+            }
+
+            if (elMinutos) {
+                elMinutos.textContent = String(minutos).padStart(2, '0');
+            }
+
+            if (elSegundos) {
+                elSegundos.textContent = String(segundos).padStart(2, '0');
+            }
+
         } else {
-            if (elDias) elDias.innerText = '00';
-            if (elHoras) elHoras.innerText = '00';
-            if (elMin) elMin.innerText = '00';
-            if (elSeg) elSeg.innerText = '00';
+
+            if (elDias) elDias.textContent = '00';
+            if (elHoras) elHoras.textContent = '00';
+            if (elMinutos) elMinutos.textContent = '00';
+            if (elSegundos) elSegundos.textContent = '00';
         }
+
     });
 }
 
-setInterval(atualizarContagens, 1000);
 atualizarContagens();
 
+setInterval(atualizarContagens, 1000);
+
+
 // ==========================================
-// ABAS DE EVENTOS (Chá de Bênçãos / Entreveiro)
+// ABAS DOS EVENTOS
+// Chá de Bênçãos / Entreveiro de Fraldas
 // ==========================================
+
 const tabBotoes = document.querySelectorAll('.tab-evento-btn');
 
 function ativarAba(nomeEvento) {
-    tabBotoes.forEach(btn => {
-        const ativo = btn.dataset.evento === nomeEvento;
-        btn.classList.toggle('active', ativo);
-        btn.setAttribute('aria-selected', ativo ? 'true' : 'false');
+
+    tabBotoes.forEach(botao => {
+
+        const ativo = botao.dataset.evento === nomeEvento;
+
+        botao.classList.toggle('active', ativo);
+
+        botao.setAttribute(
+            'aria-selected',
+            ativo ? 'true' : 'false'
+        );
     });
+
+
     paineisEvento.forEach(painel => {
-        painel.classList.toggle('active', painel.id === 'painel-' + nomeEvento);
+
+        const painelAtivo =
+            painel.id === `painel-${nomeEvento}`;
+
+        painel.classList.toggle(
+            'active',
+            painelAtivo
+        );
     });
 }
 
-tabBotoes.forEach(btn => {
-    btn.addEventListener('click', () => ativarAba(btn.dataset.evento));
-});
 
-// Botões "Confirmar presença" dentro de cada painel:
-// rolam até o formulário e já pré-selecionam o evento certo.
-const botoesConfirmarPainel = document.querySelectorAll('.btn-confirmar-painel');
-const selectEventoRsvp = document.getElementById('evento-rsvp');
+tabBotoes.forEach(botao => {
 
-botoesConfirmarPainel.forEach(btn => {
-    btn.addEventListener('click', () => {
-        if (selectEventoRsvp) {
-            selectEventoRsvp.value = btn.dataset.eventoAlvo;
-        }
-        const destino = document.getElementById('confirmacao');
-        if (destino) destino.scrollIntoView({ behavior: 'smooth' });
+    botao.addEventListener('click', () => {
+
+        ativarAba(botao.dataset.evento);
+
     });
+
 });
 
-// TELA DE CARREGAMENTO (PRELOADER)
-window.addEventListener('load', function () {
-    const preloader = document.getElementById('preloader');
-    if (preloader) {
-        preloader.style.opacity = '0';
-        setTimeout(function () {
-            preloader.style.display = 'none';
-        }, 500);
+
+// ==========================================
+// BOTÕES "CONFIRMAR PRESENÇA"
+// Dentro dos painéis dos eventos.
+// ==========================================
+
+const botoesConfirmarPainel =
+    document.querySelectorAll('.btn-confirmar-painel');
+
+const selectEventoRsvp =
+    document.getElementById('evento-rsvp');
+
+botoesConfirmarPainel.forEach(botao => {
+
+    botao.addEventListener('click', () => {
+
+        if (selectEventoRsvp) {
+
+            selectEventoRsvp.value =
+                botao.dataset.eventoAlvo;
+        }
+
+
+        const destino =
+            document.getElementById('confirmacao');
+
+        if (destino) {
+
+            destino.scrollIntoView({
+                behavior: 'smooth'
+            });
+
+        }
+
+    });
+
+});
+
+
+// ==========================================
+// PRELOADER
+// ==========================================
+
+window.addEventListener('load', () => {
+
+    const preloader =
+        document.getElementById('preloader');
+
+    if (!preloader) return;
+
+
+    preloader.style.opacity = '0';
+
+
+    setTimeout(() => {
+
+        preloader.style.display = 'none';
+
+    }, 500);
+
+});
+
+
+// ==========================================
+// CAMPO DE QUANTIDADE DE PESSOAS
+// Mostra somente quando a pessoa confirma presença.
+// ==========================================
+
+const selectPresenca =
+    document.getElementById('presenca');
+
+const groupQuantidade =
+    document.getElementById('group-quantidade');
+
+
+function atualizarCampoQuantidade() {
+
+    if (!selectPresenca || !groupQuantidade) {
+        return;
     }
-});
 
-// ==========================================
-// 1. MOSTRAR / ESCONDER CAMPO DE QUANTIDADE
-// ==========================================
-const selectPresenca = document.getElementById('presenca');
-const groupQuantidade = document.getElementById('group-quantidade');
+
+    const vaiComparecer =
+        selectPresenca.value === 'sim';
+
+
+    groupQuantidade.style.display =
+        vaiComparecer ? 'flex' : 'none';
+}
+
 
 if (selectPresenca && groupQuantidade) {
-    selectPresenca.addEventListener('change', function () {
-        const valor = this.value.toLowerCase().trim();
-        const vaiComparecer = valor.includes('sim') || valor.includes('confirm') || valor.includes('vou') || valor === '1';
 
-        if (vaiComparecer) {
-            groupQuantidade.style.display = 'flex';
-        } else {
-            groupQuantidade.style.display = 'none';
-        }
-    });
+    // Estado inicial.
+    atualizarCampoQuantidade();
+
+
+    selectPresenca.addEventListener(
+        'change',
+        atualizarCampoQuantidade
+    );
+
 }
 
+
 // ==========================================
-// 2. ENVIO DO FORMULÁRIO E MENSAGEM FINAL
+// ENVIO DO FORMULÁRIO RSVP
 // ==========================================
-const rsvpForm = document.getElementById('rsvp-form');
+
+const rsvpForm =
+    document.getElementById('rsvp-form');
+
 
 if (rsvpForm) {
-    rsvpForm.addEventListener('submit', function (e) {
-        e.preventDefault();
 
-        const formData = new FormData(this);
-        const actionUrl = this.getAttribute('action');
+    rsvpForm.addEventListener(
+        'submit',
+        async function (event) {
 
-        const campoPresenca = document.getElementById('presenca');
-        const valorPresenca = campoPresenca ? campoPresenca.value.toLowerCase().trim() : '';
+            event.preventDefault();
 
-        const campoEvento = document.getElementById('evento-rsvp');
-        const valorEvento = campoEvento ? campoEvento.value : '';
 
-        const confirmou = valorPresenca.includes('sim') ||
-                          valorPresenca.includes('confirm') ||
-                          valorPresenca.includes('vou') ||
-                          valorPresenca === 'yes' ||
-                          valorPresenca === '1';
+            const formData =
+                new FormData(rsvpForm);
 
-        const containerMensagem = document.querySelector('.form-container');
+            const actionUrl =
+                rsvpForm.getAttribute('action');
 
-        // Feedback de "Enviando..."
-        containerMensagem.innerHTML = `
-            <div style="text-align: center; padding: 30px;">
-                <p style="color: var(--azul-escuro); font-size: 1.1rem; font-weight: 600; font-family: 'Quicksand', sans-serif;">Enviando sua resposta...</p>
-            </div>
-        `;
 
-        // Envio assíncrono para o e-mail
-        fetch(actionUrl, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            let icone = '';
-            let titulo = '';
-            let texto = '';
-            const nomeEvento = valorEvento || 'o Chá do Dominic';
+            const campoPresenca =
+                document.getElementById('presenca');
 
-            if (confirmou) {
-                icone = '🎉';
-                titulo = 'Presença Confirmada!';
-                texto = `Muito obrigado por confirmar! Mal podemos esperar para comemorar ${nomeEvento} com você! 🥳💙`;
-                dispararConfete();
-            } else {
-                icone = '🩵';
-                titulo = 'Resposta Registrada!';
-                texto = 'Puxa, sentimos muito que você não poderá estar conosco nesse dia. Agradecemos muito o carinho e por nos avisar! 💌✨';
+            const valorPresenca =
+                campoPresenca
+                    ? campoPresenca.value
+                    : '';
+
+
+            const campoEvento =
+                document.getElementById('evento-rsvp');
+
+            const valorEvento =
+                campoEvento
+                    ? campoEvento.value
+                    : '';
+
+
+            const confirmou =
+                valorPresenca === 'sim';
+
+
+            const containerMensagem =
+                document.querySelector('.form-container');
+
+
+            if (!containerMensagem || !actionUrl) {
+                return;
             }
 
+
+            // ------------------------------------------
+            // MENSAGEM DE ENVIO
+            // ------------------------------------------
+
             containerMensagem.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <div style="font-size: 3rem; margin-bottom: 10px;">${icone}</div>
-                    <h3 style="color: var(--azul-escuro); font-size: 1.8rem; margin-bottom: 15px; font-family: 'Quicksand', sans-serif;">${titulo}</h3>
-                    <p style="color: var(--cinza-texto); font-size: 1.05rem; line-height: 1.6; margin-bottom: 25px; font-family: 'Nunito', sans-serif;">${texto}</p>
-                    <a href="index.html" class="btn-principal" style="display: inline-block; text-decoration: none;">← Voltar ao site</a>
+                <div class="mensagem-formulario">
+                    <p>
+                        Enviando sua resposta...
+                    </p>
                 </div>
             `;
-        })
-        .catch(error => {
-            console.error('Erro no envio:', error);
-            containerMensagem.innerHTML = `
-                <div style="text-align: center; padding: 20px;">
-                    <h3 style="color: #c53030; font-size: 1.4rem; margin-bottom: 10px; font-family: 'Quicksand', sans-serif;">Ops! Ocorreu um erro ao enviar.</h3>
-                    <p style="color: var(--cinza-texto); margin-bottom: 20px; font-family: 'Nunito', sans-serif;">Por favor, tente novamente ou entre em contato conosco.</p>
-                    <a href="index.html" class="btn-principal" style="display: inline-block; text-decoration: none;">Tentar Novamente</a>
-                </div>
-            `;
-        });
-    });
+
+
+            try {
+
+                const resposta = await fetch(
+                    actionUrl,
+                    {
+                        method: 'POST',
+
+                        body: formData,
+
+                        headers: {
+                            'Accept': 'application/json'
+                        }
+                    }
+                );
+
+
+                // ------------------------------------------
+                // VERIFICAÇÃO REAL DO FORMSPREE
+                // ------------------------------------------
+
+                if (!resposta.ok) {
+
+                    throw new Error(
+                        `Erro HTTP: ${resposta.status}`
+                    );
+
+                }
+
+
+                // ------------------------------------------
+                // RESPOSTA DE SUCESSO
+                // ------------------------------------------
+
+                const nomeEvento =
+                    valorEvento || 'o Chá do Dominic';
+
+
+                if (confirmou) {
+
+                    dispararConfete();
+
+
+                    containerMensagem.innerHTML = `
+                        <div class="mensagem-formulario sucesso">
+
+                            <div class="icone-mensagem">
+                                🎉
+                            </div>
+
+                            <h3>
+                                Presença Confirmada!
+                            </h3>
+
+                            <p>
+                                Muito obrigado por confirmar!
+                                Mal podemos esperar para comemorar
+                                ${nomeEvento} com você! 🥳💙
+                            </p>
+
+                            <a
+                                href="#inicio"
+                                class="btn-principal"
+                            >
+                                ← Voltar ao início
+                            </a>
+
+                        </div>
+                    `;
+
+                } else {
+
+                    containerMensagem.innerHTML = `
+                        <div class="mensagem-formulario sucesso">
+
+                            <div class="icone-mensagem">
+                                🩵
+                            </div>
+
+                            <h3>
+                                Resposta Registrada!
+                            </h3>
+
+                            <p>
+                                Puxa, sentimos muito que você não
+                                poderá estar conosco nesse dia.
+                                Agradecemos muito o carinho e por
+                                nos avisar! 💌✨
+                            </p>
+
+                            <a
+                                href="#inicio"
+                                class="btn-principal"
+                            >
+                                ← Voltar ao início
+                            </a>
+
+                        </div>
+                    `;
+                }
+
+
+                // Volta o scroll para a mensagem.
+                containerMensagem.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+
+
+            } catch (erro) {
+
+                console.error(
+                    'Erro no envio do formulário:',
+                    erro
+                );
+
+
+                containerMensagem.innerHTML = `
+                    <div class="mensagem-formulario erro">
+
+                        <div class="icone-mensagem">
+                            😔
+                        </div>
+
+                        <h3>
+                            Ops! Ocorreu um erro.
+                        </h3>
+
+                        <p>
+                            Não conseguimos enviar sua confirmação
+                            neste momento. Por favor, tente novamente.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="btn-principal"
+                            id="tentarNovamente"
+                        >
+                            Tentar Novamente
+                        </button>
+
+                    </div>
+                `;
+
+
+                const tentarNovamente =
+                    document.getElementById(
+                        'tentarNovamente'
+                    );
+
+
+                if (tentarNovamente) {
+
+                    tentarNovamente.addEventListener(
+                        'click',
+                        () => {
+
+                            window.location.reload();
+
+                        }
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
 }
 
-// ==========================================
-// CONFETE NA CONFIRMAÇÃO DE PRESENÇA
-// ==========================================
-function dispararConfete() {
-    if (typeof confetti !== 'function') return;
 
-    const cores = ['#4d82b8', '#2b4c6f', '#eaf2f8', '#ffffff'];
+// ==========================================
+// CONFETE
+// ==========================================
+
+function dispararConfete() {
+
+    if (typeof confetti !== 'function') {
+        return;
+    }
+
+
+    const cores = [
+        '#4d82b8',
+        '#2b4c6f',
+        '#eaf2f8',
+        '#ffffff'
+    ];
+
 
     confetti({
         particleCount: 120,
         spread: 80,
-        origin: { y: 0.6 },
+        origin: {
+            y: 0.6
+        },
         colors: cores
     });
 
+
     setTimeout(() => {
+
         confetti({
             particleCount: 60,
             angle: 60,
             spread: 70,
-            origin: { x: 0, y: 0.6 },
+            origin: {
+                x: 0,
+                y: 0.6
+            },
             colors: cores
         });
+
+
         confetti({
             particleCount: 60,
             angle: 120,
             spread: 70,
-            origin: { x: 1, y: 0.6 },
+            origin: {
+                x: 1,
+                y: 0.6
+            },
             colors: cores
         });
+
     }, 250);
 }
 
-// ==========================================
-// MENU COM DESTAQUE AUTOMÁTICO (SCROLL SPY)
-// ==========================================
-const secoesComNav = document.querySelectorAll('section[id]');
-const linksDoMenu = document.querySelectorAll('.nav-link');
 
-if (secoesComNav.length && linksDoMenu.length) {
-    const observerMenu = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                linksDoMenu.forEach(link => {
-                    const alvo = link.getAttribute('href') === '#' + id;
-                    link.classList.toggle('active', alvo);
+// ==========================================
+// MENU — SCROLL SPY
+// Destaca automaticamente a seção atual.
+// ==========================================
+
+const secoesComNav =
+    document.querySelectorAll('section[id]');
+
+const linksDoMenu =
+    document.querySelectorAll('.nav-link');
+
+
+if (
+    secoesComNav.length &&
+    linksDoMenu.length &&
+    'IntersectionObserver' in window
+) {
+
+    const observerMenu =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    const id =
+                        entry.target.getAttribute('id');
+
+
+                    linksDoMenu.forEach(link => {
+
+                        const ativo =
+                            link.getAttribute('href') ===
+                            `#${id}`;
+
+
+                        link.classList.toggle(
+                            'active',
+                            ativo
+                        );
+
+                    });
+
                 });
+
+            },
+            {
+                rootMargin: '-45% 0px -45% 0px',
+                threshold: 0
             }
-        });
-    }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+        );
 
-    secoesComNav.forEach(secao => observerMenu.observe(secao));
-}
 
-// ==========================================
-// ANIMAÇÃO SUAVE AO ROLAR (FADE-IN)
-// ==========================================
-const elementosReveal = document.querySelectorAll('.reveal');
+    secoesComNav.forEach(secao => {
 
-if (elementosReveal.length) {
-    const observerReveal = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visivel');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.15 });
+        observerMenu.observe(secao);
 
-    elementosReveal.forEach(el => observerReveal.observe(el));
-}
-
-// ==========================================
-// GALERIA DE FOTOS — CARROSSEL CORRIGIDO
-// ==========================================
-const carouselContainer = document.getElementById('carouselContainer') || document.getElementById('galeria-carrossel');
-const prevBtn = document.getElementById('prevBtn') || document.getElementById('galeria-prev');
-const nextBtn = document.getElementById('nextBtn') || document.getElementById('galeria-next');
-
-if (carouselContainer && prevBtn && nextBtn) {
-    nextBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: 310, behavior: 'smooth' });
     });
 
-    prevBtn.addEventListener('click', () => {
-        carouselContainer.scrollBy({ left: -310, behavior: 'smooth' });
-    });
 }
+
+
+// ==========================================
+// ANIMAÇÃO REVEAL
+// ==========================================
+
+const elementosReveal =
+    document.querySelectorAll('.reveal');
+
+
+if (
+    elementosReveal.length &&
+    'IntersectionObserver' in window
+) {
+
+    const observerReveal =
+        new IntersectionObserver(
+            (entries, observer) => {
+
+                entries.forEach(entry => {
+
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+
+                    entry.target.classList.add(
+                        'visivel'
+                    );
+
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                });
+
+            },
+            {
+                threshold: 0.15
+            }
+        );
+
+
+    elementosReveal.forEach(elemento => {
+
+        observerReveal.observe(elemento);
+
+    });
+
+}
+
+
+// ==========================================
+// GALERIA DE FOTOS — CARROSSEL
+// ==========================================
+
+const carouselContainer =
+    document.getElementById(
+        'carouselContainer'
+    );
+
+const prevBtn =
+    document.getElementById('prevBtn');
+
+const nextBtn =
+    document.getElementById('nextBtn');
+
+
+if (
+    carouselContainer &&
+    prevBtn &&
+    nextBtn
+) {
+
+    nextBtn.addEventListener(
+        'click',
+        () => {
+
+            carouselContainer.scrollBy({
+                left: 310,
+                behavior: 'smooth'
+            });
+
+        }
+    );
+
+
+    prevBtn.addEventListener(
+        'click',
+        () => {
+
+            carouselContainer.scrollBy({
+                left: -310,
+                behavior: 'smooth'
+            });
+
+        }
+    );
+
+}
+
 
 // ==========================================
 // COPIAR ENDEREÇO
 // ==========================================
-document.querySelectorAll('.btn-copiar').forEach(botao => {
-    botao.addEventListener('click', async () => {
-        const endereco = botao.dataset.endereco || '';
-        const textoOriginal = botao.textContent;
 
-        try {
-            await navigator.clipboard.writeText(endereco);
-            botao.textContent = '✅ Copiado!';
-            botao.classList.add('copiado');
-        } catch (erro) {
-            botao.textContent = 'Não foi possível copiar';
+const botoesCopiar =
+    document.querySelectorAll('.btn-copiar');
+
+
+botoesCopiar.forEach(botao => {
+
+    botao.addEventListener(
+        'click',
+        async () => {
+
+            const endereco =
+                botao.dataset.endereco || '';
+
+            const textoOriginal =
+                botao.textContent;
+
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    endereco
+                );
+
+
+                botao.textContent =
+                    '✅ Copiado!';
+
+                botao.classList.add(
+                    'copiado'
+                );
+
+
+            } catch (erro) {
+
+                console.error(
+                    'Erro ao copiar endereço:',
+                    erro
+                );
+
+
+                botao.textContent =
+                    'Não foi possível copiar';
+
+            }
+
+
+            setTimeout(() => {
+
+                botao.textContent =
+                    textoOriginal;
+
+                botao.classList.remove(
+                    'copiado'
+                );
+
+            }, 2000);
+
         }
+    );
 
-        setTimeout(() => {
-            botao.textContent = textoOriginal;
-            botao.classList.remove('copiado');
-        }, 2000);
-    });
 });
+
 
 // ==========================================
 // COMPARTILHAR NO WHATSAPP
 // ==========================================
-document.querySelectorAll('.btn-whatsapp').forEach(botao => {
-    const evento = botao.dataset.eventoShare || '';
-    const dataEvento = botao.dataset.dataShare || '';
-    const endereco = botao.dataset.enderecoShare || '';
 
-    const mensagem = `Oi! Vim te chamar para o ${evento} do Dominic 💙\n\n🗓️ ${dataEvento}\n📍 ${endereco}\n\nConfirme sua presença e veja todos os detalhes aqui: ${URL_DO_SITE}`;
+const botoesWhatsapp =
+    document.querySelectorAll('.btn-whatsapp');
 
-    botao.href = 'https://wa.me/?text=' + encodeURIComponent(mensagem);
+
+botoesWhatsapp.forEach(botao => {
+
+    const evento =
+        botao.dataset.eventoShare || '';
+
+    const dataEvento =
+        botao.dataset.dataShare || '';
+
+    const endereco =
+        botao.dataset.enderecoShare || '';
+
+
+    const mensagem =
+        `Oi! Vim te chamar para o ${evento} do Dominic 💙\n\n` +
+        `🗓️ ${dataEvento}\n` +
+        `📍 ${endereco}\n\n` +
+        `Confirme sua presença e veja todos os detalhes aqui: ` +
+        `${URL_DO_SITE}`;
+
+
+    botao.href =
+        'https://wa.me/?text=' +
+        encodeURIComponent(mensagem);
+
 });

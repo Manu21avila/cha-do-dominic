@@ -1,291 +1,1128 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Chá do Dominic 💙</title>
 
-    <!-- Fontes do Chá: Dancing Script (Nome) + Quicksand (Títulos Suaves) + Nunito (Leitura Leve) -->
+    <meta
+        name="description"
+        content="Site especial para celebrar a chegada do Dominic. Confira nossa história, os eventos, fotos e confirme sua presença."
+    >
+
+    <!-- ==========================================
+         FONTES
+         ========================================== -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;500;600&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Nunito:wght@400;500;600&family=Quicksand:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- ==========================================
+         CSS PRINCIPAL
+         ========================================== -->
 
     <link rel="stylesheet" href="css/style.css">
 </head>
+
+
 <body>
 
-    <!-- PRELOADER / TELA DE CARREGAMENTO -->
-    <div id="preloader">
+    <!-- ==========================================
+         PRELOADER
+         ========================================== -->
+
+    <div
+        id="preloader"
+        aria-label="Carregando o site"
+    >
+
         <div class="preloader-content">
-            <img src="img/fotos/foto-1.png" alt="Chá do Dominic" class="preloader-logo">
-            <div class="spinner"></div>
-            <p>Preparando a decolagem... ✈️💙</p>
+
+            <img
+                src="img/fotos/foto-1.png"
+                alt="Logo Chá do Dominic"
+                class="preloader-logo"
+            >
+
+            <div
+                class="spinner"
+                aria-hidden="true"
+            ></div>
+
+            <p>
+                Preparando a decolagem... ✈️💙
+            </p>
+
         </div>
+
     </div>
 
-    <!-- 1. TOPO / HERO (Logo do Dominic) -->
+
+    <!-- ==========================================
+         HERO / LOGO
+         ========================================== -->
+
     <header class="hero-section">
+
         <div class="logo-container">
-            <img src="img/fotos/foto-1.png" alt="Logo Chá do Dominic" class="hero-logo">
+
+            <img
+                src="img/fotos/foto-1.png"
+                alt="Logo Chá do Dominic"
+                class="hero-logo"
+            >
+
         </div>
+
     </header>
+
+
+    <!-- ==========================================
+         MENU DE NAVEGAÇÃO
+         ========================================== -->
 
     <header class="header">
-        <div class="header-container">
-            <a href="#inicio" class="logo">Dominic 💙</a>
 
-            <!-- Botão Hambúrguer para Celular -->
-            <button class="hamburger" id="hamburger" aria-label="Abrir menu">
+        <div class="header-container">
+
+            <a
+                href="#inicio"
+                class="logo"
+                aria-label="Voltar para o início"
+            >
+                Dominic 💙
+            </a>
+
+
+            <!-- MENU MOBILE -->
+
+            <button
+                class="hamburger"
+                id="hamburger"
+                type="button"
+                aria-label="Abrir menu"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+
                 <span></span>
                 <span></span>
                 <span></span>
+
             </button>
 
-            <!-- Menu de Navegação -->
-            <nav class="nav-menu" id="nav-menu">
+
+            <!-- MENU PRINCIPAL -->
+
+            <nav
+                class="nav-menu"
+                id="nav-menu"
+                aria-label="Navegação principal"
+            >
+
                 <ul>
-                    <li><a href="#inicio" class="nav-link">Início</a></li>
-                    <li><a href="#historia" class="nav-link">Nossa História</a></li>
-                    <li><a href="#galeria" class="nav-link">Fotos</a></li>
-                    <li><a href="#evento" class="nav-link">Eventos</a></li>
-                    <li><a href="#presentes" class="nav-link">Presentes</a></li>
-                    <li><a href="#confirmacao" class="nav-link btn-nav">Confirmar Presença</a></li>
+
+                    <li>
+                        <a
+                            href="#inicio"
+                            class="nav-link"
+                        >
+                            Início
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#historia"
+                            class="nav-link"
+                        >
+                            Nossa História
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#galeria"
+                            class="nav-link"
+                        >
+                            Fotos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#evento"
+                            class="nav-link"
+                        >
+                            Eventos
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#presentes"
+                            class="nav-link"
+                        >
+                            Presentes
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#confirmacao"
+                            class="nav-link btn-confirmar-menu"
+                        >
+                            Confirmar Presença
+                        </a>
+                    </li>
+
                 </ul>
+
             </nav>
+
         </div>
+
     </header>
 
-    <section class="hero" id="inicio">
+
+    <!-- ==========================================
+         INÍCIO
+         ========================================== -->
+
+    <section
+        class="hero"
+        id="inicio"
+        aria-labelledby="titulo-inicio"
+    >
+
         <div class="hero-content">
-            <span class="subtitulo-topo">Nossa família está crescendo! Venha celebrar conosco a chegada do</span>
 
-            <h1 class="nome-bebe">Dominic 💙</h1>
+            <span class="subtitulo-topo">
+                Nossa família está crescendo! ✨
+            </span>
 
-            <p class="frase-boas-vindas">Um novo capítulo cheio de amor, fraldas e sorrisos está prestes a começar.</p>
 
-            <br>
+            <h1
+                class="nome-bebe"
+                id="titulo-inicio"
+            >
+                Dominic 💙
+            </h1>
 
-            <a href="#confirmacao" class="btn-principal">Confirmar Presença 💙</a>
-        </div>
-    </section>
 
-    <!-- NOSSA HISTÓRIA / MENSAGEM ACOLHEDORA -->
-    <section class="secao-historia" id="historia">
-        <h2>💙 Nossa Fase Especial</h2>
-        <div class="card-historia reveal">
-            <p>No início do ano, durante as 12 Noites, fizemos um pedido especial que guardamos com carinho no coração. Mal sabíamos que, alguns meses depois, nossa história ganharia um capítulo completamente novo, trazendo a resposta tão esperada. ✨</p>
-            <p>No dia 06/05, descobrimos que um pequeno coração já fazia parte da nossa história. O papai foi o primeiro a saber e, poucos dias depois, no dia 10/05, contamos para os familiares mais próximos. Aos poucos, durante o mês de maio, fomos compartilhando a novidade com alguns amigos especiais.</p>
-            <p>No meio de toda essa emoção, também enfrentamos dias de preocupação, pois o Clenio precisou ser internado e passou por uma cirurgia. Foram dias de muita fé e ansiedade, até finalmente recebermos a alta, depois de um mês no hospital, no dia 08/06. 🙏💙 E, no dia 11/06, chegou o momento de contar para todos que o nosso pequeno estava a caminho!</p>
-            <p>Depois veio uma das perguntas mais esperadas: menino ou menina? 👀</p>
-            <p>No dia 16/07, descobrimos que era um menino! 💙 Contamos para a família no dia seguinte e, depois, compartilhamos com todos que o nosso Dominic estava chegando.</p>
-            <p>E quando achávamos que o coração já não podia ficar mais cheio, veio um dos momentos mais especiais: no dia 16/08, durante o culto, enquanto o Pastor pregava, sentimos nosso pequeno mexer pela primeira vez. 🥹 Foi como se ele estivesse dizendo: “Oi, papai e mamãe, estou aqui!”</p>
-            <p>Desde então, estamos vivendo essa fase entre emoção, ansiedade, planos, fraldas e muitos vídeos sobre maternidade e paternidade às 2h da manhã 😂.</p>
-            <p>Enquanto contamos os dias para conhecer o nosso Dom, queremos celebrar essa história ao lado das pessoas que amamos e que já fazem parte da sua vida antes mesmo de ele chegar.</p>
-            <p class="destaque-carinho">Obrigada por estar aqui e fazer parte desse capítulo tão especial da nossa história. O Dom ainda nem chegou, mas já é muito, muito amado! 💙👶✨</p>
-        </div>
-    </section>
+            <p class="frase-boas-vindas">
+                Um novo capítulo cheio de amor, sonhos e sorrisos
+                está prestes a começar.
+            </p>
 
-    <!-- GALERIA DE FOTOS EM CARROSSEL -->
-    <section class="galeria-section" id="galeria">
-        <h2>Nossa História & Memórias</h2>
-        
-        <div class="carousel-wrapper">
-            <button class="carousel-control prev" id="prevBtn" aria-label="Foto anterior">❮</button>
-            
-            <div class="carousel-container" id="carouselContainer">
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-2.jpeg" alt="Casal elegante em vestido azul e terno">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-3.jpeg" alt="Casal sorrindo na cozinha">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-4.jpeg" alt="Ultrassom do Dominic - 9 semanas">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-5.jpeg" alt="Exames de Ultrassom do Dominic">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-6.jpeg" alt="Lendo para o Dominic">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-7.jpeg" alt="Aguardando a chegada do Dominic">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-8.jpeg" alt="Comemoração e a barriguinha crescendo">
-                </div>
-                <div class="carousel-slide">
-                    <img src="img/fotos/foto-9.jpeg" alt="Casal ao ar livre celebrando">
-                </div>
-            </div>
 
-            <button class="carousel-control next" id="nextBtn" aria-label="Próxima foto">❯</button>
+            <p class="frase-evento">
+                Venha celebrar conosco a chegada do nosso pequeno!
+            </p>
+
+
+            <a
+                href="#confirmacao"
+                class="btn-principal"
+            >
+                Confirmar Presença 💙
+            </a>
+
         </div>
 
-        <!-- Indicadores (Bolinhas) -->
-        <div class="carousel-indicators" id="carouselIndicators"></div>
     </section>
 
-    <!-- MOMENTOS ESPECIAIS — EM ABAS, CADA UM COM SUAS PRÓPRIAS INFORMAÇÕES -->
-    <section class="secoes-evento" id="evento">
 
-        <p class="titulo-evento">UM FIM DE SEMANA ESPECIAL</p>
-        <h2>Dois momentos para celebrar o Dominic 💙</h2>
+    <!-- ==========================================
+         NOSSA HISTÓRIA
+         ========================================== -->
+
+    <section
+        class="historia-section"
+        id="historia"
+        aria-labelledby="titulo-historia"
+    >
+
+        <span class="titulo-secao">
+            💙 NOSSA HISTÓRIA
+        </span>
+
+
+        <h2 id="titulo-historia">
+            O começo da nossa maior aventura
+        </h2>
+
+
         <p class="subtitulo-secao">
-            Preparamos dois momentos especiais para compartilhar essa fase tão importante com pessoas queridas.
-            Escolha abaixo o evento para o qual você foi convidado(a) e veja todos os detalhes.
+            Uma história de amor, sonhos e um pequeno coração
+            que já transformou nossas vidas.
         </p>
 
-        <!-- BOTÕES DAS ABAS -->
-        <div class="evento-tabs" role="tablist" aria-label="Escolha o evento">
-            <button class="tab-evento-btn active" data-evento="bencaos" role="tab" aria-selected="true">
+
+        <div class="card-historia reveal">
+
+            <p>
+                No início do ano, durante as 12 Noites de clamor na igreja, fizemos um
+                pedido especial que guardamos com carinho no coração.
+                Mal sabíamos que, alguns meses depois, nossa história
+                ganharia um capítulo completamente novo, trazendo a
+                resposta tão esperada. ✨
+            </p>
+
+
+            <p>
+                No dia 06/05, descobrimos que um pequeno coração já
+                fazia parte da nossa história. O papai foi o primeiro
+                a saber e, poucos dias depois, no dia 10/05, contamos
+                para os familiares mais próximos. Aos poucos, durante
+                o mês de maio, fomos compartilhando a novidade com
+                alguns amigos especiais.
+            </p>
+
+
+            <p>
+                No meio de toda essa emoção, também enfrentamos dias
+                de preocupação, pois o Clenio precisou ser internado
+                e passou por uma cirurgia. Foram dias de muita fé e
+                ansiedade, até finalmente recebermos a alta, depois
+                de um mês no hospital, no dia 08/06. 🙏💙 E, no dia
+                11/06, chegou o momento de contar para todos que o
+                nosso pequeno estava a caminho!
+            </p>
+
+
+            <p>
+                Depois veio uma das perguntas mais esperadas:
+                menino ou menina? 👀
+            </p>
+
+
+            <p>
+                No dia 16/07, descobrimos que era um menino! 💙
+                Contamos para a família no dia seguinte e, depois,
+                compartilhamos com todos que o nosso Dominic estava
+                chegando.
+            </p>
+
+
+            <p>
+                E quando achávamos que o coração já não podia ficar
+                mais cheio, veio um dos momentos mais especiais:
+                no dia 16/08, durante o culto, enquanto o Pastor
+                pregava, sentimos nosso pequeno mexer pela primeira
+                vez. 🥹 Foi como se ele estivesse dizendo:
+                “Oi, papai e mamãe, estou aqui!”
+            </p>
+
+
+            <p>
+                Desde então, estamos vivendo essa fase entre emoção,
+                ansiedade, planos, fraldas e muitos vídeos sobre
+                maternidade e paternidade às 2h da manhã 😂.
+            </p>
+
+
+            <p>
+                Enquanto contamos os dias para conhecer o nosso Dom,
+                queremos celebrar essa história ao lado das pessoas
+                que amamos e que já fazem parte da sua vida antes
+                mesmo de ele chegar.
+            </p>
+
+
+            <p class="destaque-carinho">
+                Obrigada por estar aqui e fazer parte desse capítulo
+                tão especial da nossa história. O Dom ainda nem
+                chegou, mas já é muito, muito amado! 💙👶✨
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         GALERIA
+         ========================================== -->
+
+    <section
+        class="galeria-section"
+        id="galeria"
+        aria-labelledby="titulo-galeria"
+    >
+
+        <span class="titulo-secao">
+            📸 NOSSOS MOMENTOS
+        </span>
+
+
+        <h2 id="titulo-galeria">
+            Um pedacinho da nossa história
+        </h2>
+
+
+        <p class="subtitulo-secao">
+            Alguns dos momentos que já vivemos com o Dominic antes
+            mesmo da sua chegada. 💙
+        </p>
+
+
+        <div class="carousel-wrapper">
+
+            <button
+                class="carousel-control prev"
+                id="prevBtn"
+                type="button"
+                aria-label="Foto anterior"
+            >
+                ❮
+            </button>
+
+
+            <div
+                class="carousel-container"
+                id="carouselContainer"
+                tabindex="0"
+                aria-label="Galeria de fotos"
+            >
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-2.jpeg"
+                        alt="Casal elegante em vestido azul e terno"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-3.jpeg"
+                        alt="Casal sorrindo na cozinha"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-4.jpeg"
+                        alt="Ultrassom do Dominic com 9 semanas"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-5.jpeg"
+                        alt="Exames de ultrassom do Dominic"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-6.jpeg"
+                        alt="Momento de leitura para o Dominic"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-7.jpeg"
+                        alt="Família aguardando a chegada do Dominic"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-8.jpeg"
+                        alt="Comemoração com a barriguinha crescendo"
+                        loading="lazy"
+                    >
+                </div>
+
+
+                <div class="carousel-slide">
+                    <img
+                        src="img/fotos/foto-9.jpeg"
+                        alt="Casal ao ar livre celebrando a chegada do Dominic"
+                        loading="lazy"
+                    >
+                </div>
+
+            </div>
+
+
+            <button
+                class="carousel-control next"
+                id="nextBtn"
+                type="button"
+                aria-label="Próxima foto"
+            >
+                ❯
+            </button>
+
+        </div>
+
+
+        <!-- INDICADORES DO CARROSSEL -->
+
+        <div
+            class="carousel-indicators"
+            id="carouselIndicators"
+            aria-label="Indicadores da galeria"
+        ></div>
+
+    </section>
+
+
+    <!-- ==========================================
+         EVENTOS
+         ========================================== -->
+
+    <section
+        class="secoes-evento"
+        id="evento"
+        aria-labelledby="titulo-eventos"
+    >
+
+        <span class="titulo-secao">
+            ✈️ UM FIM DE SEMANA ESPECIAL
+        </span>
+
+
+        <h2 id="titulo-eventos">
+            Dois encontros, uma só celebração
+        </h2>
+
+
+        <p class="subtitulo-secao">
+            Preparamos dois momentos especiais para celebrar a
+            chegada do Dominic. Escolha abaixo o evento para o qual
+            você foi convidado(a) e confira todos os detalhes.
+        </p>
+
+
+        <!-- ABAS -->
+
+        <div
+            class="evento-tabs"
+            role="tablist"
+            aria-label="Escolha o evento"
+        >
+
+            <button
+                class="tab-evento-btn active"
+                data-evento="bencaos"
+                id="tab-bencaos"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="painel-bencaos"
+            >
                 💙 Chá de Bênçãos
             </button>
-            <button class="tab-evento-btn" data-evento="entreveiro" role="tab" aria-selected="false">
+
+
+            <button
+                class="tab-evento-btn"
+                data-evento="entreveiro"
+                id="tab-entreveiro"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="painel-entreveiro"
+            >
                 🍼 Entreveiro Fraldas
             </button>
+
         </div>
 
-        <!-- PAINEL: CHÁ DE BÊNÇÃOS -->
-        <div class="painel-evento active" id="painel-bencaos" data-date="2026-11-22T15:00:00" data-evento-label="Chá de Bênçãos (22/11 às 15h)">
+
+        <!-- ==========================================
+             PAINEL — CHÁ DE BÊNÇÃOS
+             ========================================== -->
+
+        <div
+            class="painel-evento active"
+            id="painel-bencaos"
+            data-date="2026-11-22T15:00:00"
+            data-evento-label="Chá de Bênçãos (22/11 às 15h)"
+            role="tabpanel"
+            aria-labelledby="tab-bencaos"
+        >
+
             <article class="evento-card destaque evento-card-painel reveal">
+
                 <div class="evento-data">
-                    22
+
+                    <strong>22</strong>
                     <span>NOV</span>
-                    <span>às 15h</span>
+                    <small>DOMINGO</small>
+                    <small>15h</small>
+
                 </div>
+
+
                 <div class="evento-conteudo">
-                    <span class="evento-tag">DOMINGO</span>
-                    <h3>Chá de Bênçãos 💙</h3>
-                    <p>Um momento especial da mamãe com as amigas onde haverá carinho, oração, muitas risadas e celebração pela chegada do Dominic. ✨</p>
+
+                    <h3>
+                        Chá de Bênçãos 💙
+                    </h3>
+
+
+                    <p>
+                        Um momento especial para a mamãe celebrar a
+                        chegada do Dominic ao lado das mulheres da
+                        família e das amigas, com carinho, oração,
+                        muitas risadas e momentos especiais. ✨
+                    </p>
+
                 </div>
+
             </article>
 
+
+            <!-- CONTADOR -->
+
             <div class="contador">
-                <div class="contador-item"><span data-unit="dias">00</span><p>Dias</p></div>
-                <div class="contador-item"><span data-unit="horas">00</span><p>Horas</p></div>
-                <div class="contador-item"><span data-unit="minutos">00</span><p>Min</p></div>
-                <div class="contador-item"><span data-unit="segundos">00</span><p>Seg</p></div>
+
+                <div class="contador-item">
+                    <span data-unit="dias">00</span>
+                    <p>Dias</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="horas">00</span>
+                    <p>Horas</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="minutos">00</span>
+                    <p>Min</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="segundos">00</span>
+                    <p>Seg</p>
+                </div>
+
             </div>
 
-            <h3 class="titulo-local">Como Chegar</h3>
-            <p class="subtitulo-secao" data-endereco="Salão de festas — Condomínio Ecoville, Av. Ecoville, 790 - Sarandi, Porto Alegre - RS">Salão de festas — Condomínio Ecoville · Av. Ecoville, 790 - Sarandi, Porto Alegre - RS</p>
+
+            <!-- LOCAL -->
+
+            <h3 class="titulo-local">
+                Como Chegar
+            </h3>
+
+
+            <p
+                class="subtitulo-secao"
+                data-endereco="Salão de festas — Condomínio Ecoville, Av. Ecoville, 790 - Sarandi, Porto Alegre - RS"
+            >
+                Salão de festas — Condomínio Ecoville · Av. Ecoville,
+                790 - Sarandi, Porto Alegre - RS
+            </p>
+
+
             <div class="mapa-container reveal">
-                <iframe src="https://maps.google.com/maps?q=Av.%20Ecoville%2C%20790%20-%20Sarandi%2C%20Porto%20Alegre%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <iframe
+                    src="https://maps.google.com/maps?q=Av.%20Ecoville%2C%20790%20-%20Sarandi%2C%20Porto%20Alegre%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="280"
+                    style="border:0;"
+                    title="Mapa do local do Chá de Bênçãos"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+
             </div>
+
+
+            <!-- AÇÕES -->
 
             <div class="acoes-local">
-                <a href="https://www.google.com/maps/search/?api=1&query=Av.+Ecoville%2C+790+-+Sarandi%2C+Porto+Alegre+-+RS" target="_blank" class="btn-rota">Abrir no GPS 🧭</a>
-                <button class="btn-copiar" data-endereco="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS">📋 Copiar endereço</button>
-                <a href="#" class="btn-whatsapp" data-evento-share="Chá de Bênçãos" data-data-share="22/11 às 15h" data-endereco-share="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS" target="_blank" rel="noopener">💬 Compartilhar no WhatsApp</a>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=Av.+Ecoville%2C+790+-+Sarandi%2C+Porto+Alegre+-+RS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-rota"
+                >
+                    Abrir no GPS 🧭
+                </a>
+
+
+                <button
+                    class="btn-copiar"
+                    type="button"
+                    data-endereco="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS"
+                >
+                    📋 Copiar endereço
+                </button>
+
+
+                <a
+                    href="#"
+                    class="btn-whatsapp"
+                    data-evento-share="Chá de Bênçãos"
+                    data-data-share="22/11 às 15h"
+                    data-endereco-share="Av. Ecoville, 790 - Sarandi, Porto Alegre - RS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💬 Compartilhar no WhatsApp
+                </a>
+
             </div>
 
-            <br>
-            <button class="btn-confirmar-painel" data-evento-alvo="Chá de Bênçãos (22/11 às 15h)">Confirmar presença no Chá de Bênçãos</button>
+
+            <button
+                class="btn-confirmar-painel"
+                type="button"
+                data-evento-alvo="Chá de Bênçãos (22/11 às 15h)"
+            >
+                Confirmar presença no Chá de Bênçãos
+            </button>
+
         </div>
 
-        <!-- PAINEL: ENTREVEIRO FRALDAS -->
-        <div class="painel-evento" id="painel-entreveiro" data-date="2026-11-21T11:00:00" data-evento-label="Entreveiro Fraldas (21/11 às 11h)">
+
+        <!-- ==========================================
+             PAINEL — ENTREVEIRO
+             ========================================== -->
+
+        <div
+            class="painel-evento"
+            id="painel-entreveiro"
+            data-date="2026-11-21T11:00:00"
+            data-evento-label="Entreveiro Fraldas (21/11 às 11h)"
+            role="tabpanel"
+            aria-labelledby="tab-entreveiro"
+            hidden
+        >
+
             <article class="evento-card evento-card-painel reveal">
+
                 <div class="evento-data">
-                    21
+
+                    <strong>21</strong>
                     <span>NOV</span>
-                    <span>às 11h</span>
+                    <small>SÁBADO</small>
+                    <small>11h</small>
+
                 </div>
+
+
                 <div class="evento-conteudo">
-                    <span class="evento-tag">SÁBADO</span>
-                    <h3>Entreveiro Fraldas 🍼</h3>
-                    <p>Um encontro especial para os homens da família e amigos, com muita conversa, descontração e um delicioso entreveiro para celebrar a chegada do Dominic. 🍖💙</p>
+
+                    <h3>
+                        Entreveiro de Fraldas 🍼
+                    </h3>
+
+
+                    <p>
+                        Um encontro especial para os homens da família
+                        e amigos, com muita conversa, descontração e um
+                        delicioso entreveiro para celebrar a chegada
+                        do Dominic. 🍖💙
+                    </p>
+
                 </div>
+
             </article>
 
+
+            <!-- CONTADOR -->
+
             <div class="contador">
-                <div class="contador-item"><span data-unit="dias">00</span><p>Dias</p></div>
-                <div class="contador-item"><span data-unit="horas">00</span><p>Horas</p></div>
-                <div class="contador-item"><span data-unit="minutos">00</span><p>Min</p></div>
-                <div class="contador-item"><span data-unit="segundos">00</span><p>Seg</p></div>
+
+                <div class="contador-item">
+                    <span data-unit="dias">00</span>
+                    <p>Dias</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="horas">00</span>
+                    <p>Horas</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="minutos">00</span>
+                    <p>Min</p>
+                </div>
+
+                <div class="contador-item">
+                    <span data-unit="segundos">00</span>
+                    <p>Seg</p>
+                </div>
+
             </div>
 
-            <h3 class="titulo-local">Como Chegar</h3>
-            <p class="subtitulo-secao" data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS">R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS</p>
+
+            <!-- LOCAL -->
+
+            <h3 class="titulo-local">
+                Como Chegar
+            </h3>
+
+
+            <p
+                class="subtitulo-secao"
+                data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS"
+            >
+                R. Ernesto Dorneles, 230 - Formoza,
+                Alvorada - RS
+            </p>
+
+
             <div class="mapa-container reveal">
-                <iframe src="https://maps.google.com/maps?q=R.%20Ernesto%20Dorneles%2C%20230%20-%20Formoza%2C%20Alvorada%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+                <iframe
+                    src="https://maps.google.com/maps?q=R.%20Ernesto%20Dorneles%2C%20230%20-%20Formoza%2C%20Alvorada%20-%20RS&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                    width="100%"
+                    height="280"
+                    style="border:0;"
+                    title="Mapa do local do Entreveiro de Fraldas"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+
             </div>
+
+
+            <!-- AÇÕES -->
 
             <div class="acoes-local">
-                <a href="https://www.google.com/maps/search/?api=1&query=R.+Ernesto+Dorneles%2C+230+-+Formoza%2C+Alvorada+-+RS" target="_blank" class="btn-rota">Abrir no GPS 🧭</a>
-                <button class="btn-copiar" data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS">📋 Copiar endereço</button>
-                <a href="#" class="btn-whatsapp" data-evento-share="Entreveiro Fraldas" data-data-share="21/11 às 11h" data-endereco-share="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS" target="_blank" rel="noopener">💬 Compartilhar no WhatsApp</a>
+
+                <a
+                    href="https://www.google.com/maps/search/?api=1&query=R.+Ernesto+Dorneles%2C+230+-+Formoza%2C+Alvorada+-+RS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-rota"
+                >
+                    Abrir no GPS 🧭
+                </a>
+
+
+                <button
+                    class="btn-copiar"
+                    type="button"
+                    data-endereco="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS"
+                >
+                    📋 Copiar endereço
+                </button>
+
+
+                <a
+                    href="#"
+                    class="btn-whatsapp"
+                    data-evento-share="Entreveiro Fraldas"
+                    data-data-share="21/11 às 11h"
+                    data-endereco-share="R. Ernesto Dorneles, 230 - Formoza, Alvorada - RS"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    💬 Compartilhar no WhatsApp
+                </a>
+
             </div>
 
-            <br>
-            <button class="btn-confirmar-painel" data-evento-alvo="Entreveiro Fraldas (21/11 às 11h)">Confirmar presença no Entreveiro</button>
+
+            <button
+                class="btn-confirmar-painel"
+                type="button"
+                data-evento-alvo="Entreveiro Fraldas (21/11 às 11h)"
+            >
+                Confirmar presença no Entreveiro
+            </button>
+
         </div>
+
     </section>
 
-    <!-- LISTA DE PRESENTES -->
-    <section class="secao-presentes" id="presentes">
-        <h2>Sugestões de Mimos 🎁</h2>
-        <p class="subtitulo-secao">🎁 <strong>Sugestão de presente: FRALDAS 😅</strong><br>(Caso queira acrescentar um mimo, preparamos uma listinha com muito carinho — vale para os dois eventos)</p>
+
+    <!-- ==========================================
+         LISTA DE PRESENTES
+         ========================================== -->
+
+    <section
+        class="secao-presentes"
+        id="presentes"
+        aria-labelledby="titulo-presentes"
+    >
+
+        <span class="titulo-secao">
+            🎁 COM CARINHO
+        </span>
+
+
+        <h2 id="titulo-presentes">
+            Um presente para o Dominic
+        </h2>
+
+
+        <p class="subtitulo-secao">
+            Sua presença já é o nosso maior presente! 💙
+        </p>
+
+
+        <p class="subtitulo-presentes">
+
+            Se quiser nos presentear, nossa principal sugestão são
+            <strong>FRALDAS</strong> 😅.
+
+            Também preparamos uma listinha com algumas sugestões de
+            mimos para quem quiser conferir.
+
+        </p>
+
 
         <div class="card-aviso-presentes reveal">
-            <p class="frase-carinho">A sua presença é o nosso maior presente! Se quiser conferir nossa pré-lista completa online com sugestões de mimos, acesse:</p>
-            <a href="https://cha-do-dom.listaideal.com.br/pt" target="_blank" class="btn-lista-externa">Acessar Lista Completa Online 🎁</a>
+
+            <p class="frase-carinho">
+                A sua presença é o nosso maior presente! Se quiser
+                conferir nossa pré-lista completa online com sugestões
+                de mimos, acesse:
+            </p>
+
+
+            <a
+                href="https://cha-do-dom.listaideal.com.br/pt"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-lista-externa"
+            >
+                Acessar Lista Completa Online 🎁
+            </a>
+
         </div>
+
     </section>
 
-    <!-- SEÇÃO CONFIRMAÇÃO DE PRESENÇA -->
-    <section class="rsvp-section" id="confirmacao">
-        <h2>Confirmação de Presença ✈️</h2>
-        <p>Por favor, confirme sua presença até o dia 10/11/2026 para organizarmos tudo com muito carinho! 🎉💙</p>
+
+    <!-- ==========================================
+         CONFIRMAÇÃO DE PRESENÇA
+         ========================================== -->
+
+    <section
+        class="rsvp-section"
+        id="confirmacao"
+        aria-labelledby="titulo-confirmacao"
+    >
+
+        <h2 id="titulo-confirmacao">
+            💌 Confirme sua presença
+        </h2>
+
+
+        <p>
+            Queremos muito viver esse momento com você!
+            Confirme sua presença até
+            <strong>10/11/2026</strong>
+            para nos ajudar a preparar tudo com muito carinho. 💙
+        </p>
+
 
         <div class="form-container reveal">
-            <form id="rsvp-form" action="https://formspree.io/f/meajdqpz" method="POST">
+
+            <form
+                id="rsvp-form"
+                action="https://formspree.io/f/meajdqpz"
+                method="POST"
+            >
+
+                <!-- NOME -->
 
                 <div class="form-group">
-                    <label for="nome">Nome Completo:</label>
-                    <input type="text" id="nome" name="Nome" required placeholder="Digite seu nome">
+
+                    <label for="nome">
+                        Nome Completo:
+                    </label>
+
+
+                    <input
+                        type="text"
+                        id="nome"
+                        name="Nome"
+                        required
+                        autocomplete="name"
+                        placeholder="Digite seu nome"
+                    >
+
                 </div>
 
+
+                <!-- EVENTO -->
+
                 <div class="form-group">
-                    <label for="evento-rsvp">Qual evento?</label>
-                    <select id="evento-rsvp" name="Evento" required>
-                        <option value="">Selecione o evento...</option>
-                        <option value="Chá de Bênçãos (22/11 às 15h)">💙 Chá de Bênçãos — 22/11 às 15h</option>
-                        <option value="Entreveiro Fraldas (21/11 às 11h)">🍼 Entreveiro Fraldas — 21/11 às 11h</option>
+
+                    <label for="evento-rsvp">
+                        Qual evento?
+                    </label>
+
+
+                    <select
+                        id="evento-rsvp"
+                        name="Evento"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione o evento...
+                        </option>
+
+                        <option value="Chá de Bênçãos (22/11 às 15h)">
+                            💙 Chá de Bênçãos — 22/11 às 15h
+                        </option>
+
+                        <option value="Entreveiro Fraldas (21/11 às 11h)">
+                            🍼 Entreveiro Fraldas — 21/11 às 11h
+                        </option>
+
                     </select>
+
                 </div>
 
+
+                <!-- PRESENÇA -->
+
                 <div class="form-group">
-                    <label for="presenca">Você irá ao evento?</label>
-                    <select id="presenca" name="presenca" required>
-                        <option value="">Selecione uma opção...</option>
-                        <option value="sim">Sim, estarei presente!</option>
-                        <option value="nao">Infelizmente não poderei ir</option>
+
+                    <label for="presenca">
+                        Você irá ao evento?
+                    </label>
+
+
+                    <select
+                        id="presenca"
+                        name="presenca"
+                        required
+                    >
+
+                        <option value="">
+                            Selecione uma opção...
+                        </option>
+
+                        <option value="sim">
+                            Sim, estarei presente!
+                        </option>
+
+                        <option value="nao">
+                            Infelizmente não poderei ir
+                        </option>
+
                     </select>
+
                 </div>
 
-                <div class="form-group" id="group-quantidade">
-                    <label for="quantidade">Quantas pessoas no total (incluindo você)?</label>
-                    <input type="number" id="quantidade" name="Quantidade de Pessoas" min="1" value="1">
+
+                <!-- QUANTIDADE -->
+
+                <div
+                    class="form-group"
+                    id="group-quantidade"
+                >
+
+                    <label for="quantidade">
+                        Quantas pessoas no total (incluindo você)?
+                    </label>
+
+
+                    <input
+                        type="number"
+                        id="quantidade"
+                        name="Quantidade de Pessoas"
+                        min="1"
+                        value="1"
+                        inputmode="numeric"
+                    >
+
                 </div>
+
+
+                <!-- MENSAGEM -->
 
                 <div class="form-group">
-                    <label for="mensagem">Recado para os pais / Dominic (opcional):</label>
-                    <textarea id="mensagem" name="Mensagem" rows="3" placeholder="Deixe uma mensagem fofa..."></textarea>
+
+                    <label for="mensagem">
+                        Recado para os pais / Dominic (opcional):
+                    </label>
+
+
+                    <textarea
+                        id="mensagem"
+                        name="Mensagem"
+                        rows="3"
+                        placeholder="Deixe uma mensagem fofa..."
+                    ></textarea>
+
                 </div>
 
-                <button type="submit" class="btn-confirmar">Enviar Confirmação</button>
+
+                <!-- BOTÃO -->
+
+                <button
+                    type="submit"
+                    class="btn-confirmar"
+                >
+                    Enviar Confirmação
+                </button>
+
             </form>
+
         </div>
+
     </section>
 
-    <!-- RODAPÉ -->
+
+    <!-- ==========================================
+         RODAPÉ
+         ========================================== -->
+
     <footer>
-        <p>Feito com muito amor pelos papais para celebrar a chegada do Dominic 💙</p>
+
+        <p>
+            Feito com muito amor pelos papais para celebrar
+            a chegada do Dominic 💙
+        </p>
+
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+
+    <!-- ==========================================
+         SCRIPTS
+         ========================================== -->
+
+    <!-- Confetti -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"
+    ></script>
+
+
+    <!-- JavaScript principal -->
+
     <script src="js/script.js"></script>
+
 </body>
+
 </html>
