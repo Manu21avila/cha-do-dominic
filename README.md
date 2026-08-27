@@ -35,5 +35,5 @@ O projeto está publicado e pode ser acessado em funcionamento através do GitHu
 ---
 
 <p align="center">
-  Desenvolvido com ❤️ por <b>Emanuelle Ávila</b>
+  Desenvolvido por <b>Emanuelle Ávila Bairros</b>
 </p>

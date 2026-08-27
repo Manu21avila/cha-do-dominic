@@ -1,3 +1,12 @@
+/*
+  ========================================================
+  Projeto:Chá do Dominic
+  Desenvolvido por:Emanuelle Ávila Bairros
+  GitHub:https://github.com/Manu21avila
+  Todos os direitos de código reservamos ao autor.
+  ========================================================
+*/
+
 // ==========================================
 // CONFIGURAÇÕES GERAIS
 // ==========================================
@@ -845,3 +854,9 @@ botoesWhatsapp.forEach(botao => {
         encodeURIComponent(mensagem);
 
 });
+
+console.log(
+    "%c Desenvolvido por Emanuelle Ávila Bairros %c https://github.com/Manu21avila ",
+    "background: #4d82b8; color: #fff; padding: 5px 10px; border-radius: 4px 0 0 4px; font-weight: bold;",
+    "background: #2b4c6f; color: #fff; padding: 5px 10px; border-radius: 0 4px 4px 0;"
+);
