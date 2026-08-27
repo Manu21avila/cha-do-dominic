@@ -222,30 +222,33 @@ botoesConfirmarPainel.forEach(botao => {
 
 });
 
-
 // ==========================================
 // PRELOADER
 // ==========================================
 
+// Desativa a restauração automática de rolagem do navegador
+if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+}
+
+// Garante topo zero imediatamente
+window.scrollTo(0, 0);
+
 window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
 
-    const preloader =
-        document.getElementById('preloader');
+    // Garante rolagem no topo absoluto
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant'
+    });
 
-    if (!preloader) return;
-
-
-    preloader.style.opacity = '0';
-
-
-    setTimeout(() => {
-
-        preloader.style.display = 'none';
-
-    }, 500);
-
+    if (preloader) {
+        // Aplica o efeito de fade-out
+        preloader.classList.add('preloader-hidden');
+    }
 });
-
 
 // ==========================================
 // CAMPO DE QUANTIDADE DE PESSOAS
