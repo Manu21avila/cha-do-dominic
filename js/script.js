@@ -61,22 +61,6 @@ if (hamburger && navMenu) {
 }
 
 // ==========================================
-// PRELOADER
-// ==========================================
-
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    if (!preloader) return;
-
-    setTimeout(() => {
-        preloader.style.opacity = '0';
-        setTimeout(() => {
-            preloader.style.display = 'none';
-        }, 500);
-    }, 800); // Aguarda 800ms para dar tempo de visualizar a animação
-});
-
-// ==========================================
 // CONTAGEM REGRESSIVA DOS EVENTOS
 // Cada painel possui seu próprio data-date.
 // ==========================================

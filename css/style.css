@@ -138,10 +138,12 @@ section h2 {
 }
 
 .preloader-logo {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     object-fit: cover;
+    background-color: var(--branco);
+    box-shadow: var(--sombra-suave);
 }
 
 .spinner {
