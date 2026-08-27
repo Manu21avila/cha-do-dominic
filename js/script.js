@@ -245,8 +245,10 @@ window.addEventListener('load', () => {
     });
 
     if (preloader) {
-        // Aplica o efeito de fade-out
-        preloader.classList.add('preloader-hidden');
+        // Aguarda 1.5 segundos (1500ms) para exibir a animação com calma antes de esconder
+        setTimeout(() => {
+            preloader.classList.add('preloader-hidden');
+        }, 1500);
     }
 });
 
