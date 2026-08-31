@@ -1454,6 +1454,18 @@ footer {
     color: #c53030;
 }
 
+/* Garante espaçamento em relação ao mural de recados */
+.form-container, 
+.mensagem-sucesso-card {
+    margin-bottom: 60px !important;
+    text-align: center;
+}
+
+/* Evita que o mural suba abruptamente */
+#confirmacao-presenca {
+    min-height: 400px;
+}
+
 /* ==========================================
    AJUSTE DAS ÂNCORAS DO MENU
    Evita que o cabeçalho cubra o início
@@ -1486,4 +1498,252 @@ section[id] {
 
 .desenvolvedor-credito a:hover {
     text-decoration: underline;
+}
+/* ==========================================
+   CORREÇÃO DE LAYOUT E ANIMAÇÕES
+   ========================================== */
+
+/* 1. Spinner do Preloader girando novamente */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(77, 130, 184, 0.2);
+    border-top: 4px solid #4d82b8;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 15px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Esconder o preloader com suavidade */
+#preloader.preloader-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* 2. Correção da Logo cortando */
+.hero-section {
+    padding-top: 80px;
+    text-align: center;
+}
+
+.hero-logo {
+    max-width: 180px;
+    height: auto;
+    object-fit: contain;
+    display: inline-block;
+}
+
+/* 3. Restauração do layout dos cards de Evento */
+.evento-card-painel {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .evento-card-painel {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+}
+
+/* 4. Restauração do Mural de Recados */
+.secao-recados .form-container {
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+}
+
+#lista-recados {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* 5. Garante visibilidade das animações sem quebrar o layout */
+.reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* ==========================================
+   FIX: MODAL DE CONFIRMAÇÃO DE PRESENÇA
+   ========================================== */
+
+/* Transforma a confirmação em um modal fixo centralizado */
+#confirmacao-sucesso, 
+.modal-confirmacao,
+.sucesso-card {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999 !important;
+    max-width: 500px !important;
+    width: 90% !important;
+    margin: 0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Garante que o fundo da página não colida com o modal */
+.secao-recados {
+    position: relative;
+    z-index: 1;
+    clear: both;
+}
+/* ==========================================
+   AJUSTE DE ESPAÇAMENTO DO CARD DE RESPOSTA
+   ========================================== */
+
+#confirmacao-sucesso, 
+.modal-confirmacao,
+.sucesso-card {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 9999 !important;
+    max-width: 500px !important;
+    width: 90% !important;
+    margin: 0 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* ==========================================
+   ISOLAMENTO DEFINITIVO DE SEÇÕES
+   ========================================== */
+
+/* Força o container do mural a ir para baixo de qualquer card */
+#recados, 
+.secao-recados {
+    clear: both !important;
+    display: block !important;
+    position: relative !important;
+    z-index: 2 !important;
+    margin-top: 100px !important;
+    padding-top: 60px !important;
+}
+
+/* Garante altura e recuo adequados no card de resposta */
+.resposta-registrada,
+.card-confirmacao,
+#confirmacao-sucesso {
+    position: relative !important;
+    z-index: 1 !important;
+    margin: 40px auto 60px auto !important;
+    max-width: 600px !important;
+    clear: both !important;
+}
+
+/* Wrapper do Carrossel */
+.mural-carrossel-wrapper {
+    max-width: 800px;
+    margin: 40px auto 0 auto;
+    padding: 0 15px;
+}
+
+.mural-subtitulo {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Layout dos botões + trilha */
+.carrossel-controles {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Trilha de Rolagem Horizontal */
+.mural-carrossel-track {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 15px 5px;
+    scroll-snap-type: x mandatory;
+    width: 100%;
+}
+
+/* Oculta barra de rolagem mas mantém funcionalidade */
+.mural-carrossel-track::-webkit-scrollbar {
+    display: none;
+}
+.mural-carrossel-track {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Card Individual (Tamanho Fixo Horizontal) */
+.card-recadinho-horizontal {
+    flex: 0 0 280px; /* Largura fixa de cada card */
+    scroll-snap-align: start;
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    border: 1px solid #f0f4f8;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 140px;
+    transition: transform 0.2s ease;
+}
+
+.card-recadinho-horizontal:hover {
+    transform: translateY(-3px);
+}
+
+.card-recadinho-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.autor-nome {
+    font-weight: 700;
+    color: #2c3e50;
+    font-size: 1.05rem;
+}
+
+.recadinho-texto {
+    color: #555555;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin: 0;
+    word-break: break-word;
+}
+
+/* Botões Laterais */
+.btn-carrossel-mural {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    color: #4d82b8;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.btn-carrossel-mural:hover {
+    background-color: #4d82b8;
+    color: #ffffff;
 }
