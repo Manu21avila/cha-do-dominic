@@ -330,7 +330,7 @@ function carregarRecados() {
       .orderBy('criadoEm', 'desc')
       .onSnapshot((snapshot) => {
           if (snapshot.empty) {
-              muralTrack.innerHTML = '<p style="text-align:center; color:#666;">Seja o primeiro a deixar um recadinho! ✨</p>';
+              muralTrack.innerHTML = '<p class="lista-recados-vazia">Seja o primeiro a deixar um recadinho! ✨</p>';
               return;
           }
 
@@ -345,17 +345,28 @@ function carregarRecados() {
 function adicionarRecadoNaTela(nome, mensagem) {
     if (!muralTrack) return;
 
-    const novoCard = document.createElement('div');
-    novoCard.className = 'card-recadinho-horizontal card-recado';
-    novoCard.innerHTML = `
-        <div class="card-recadinho-header" style="display:flex; justify-content:space-between; align-items:center;">
-            <span class="autor-nome"><strong>${nome}</strong></span>
-            <span class="recadinho-coracao" style="color: #4d82b8; font-size: 1.1rem;">💙</span>
-        </div>
-        <p class="recadinho-texto" style="margin-top: 8px; color: #4a5568;">${mensagem}</p>
-    `;
+    const card = document.createElement('article');
+    card.className = 'card-recadinho-horizontal card-recado';
 
-    muralTrack.appendChild(novoCard);
+    const header = document.createElement('div');
+    header.className = 'card-recadinho-header';
+
+    const autor = document.createElement('span');
+    autor.className = 'autor-nome';
+    autor.textContent = nome;
+
+    const coracao = document.createElement('span');
+    coracao.className = 'recadinho-coracao';
+    coracao.textContent = '💙';
+
+    header.append(autor, coracao);
+
+    const texto = document.createElement('p');
+    texto.className = 'recadinho-texto';
+    texto.textContent = mensagem;
+
+    card.append(header, texto);
+    muralTrack.appendChild(card);
 }
 
 carregarRecados();
